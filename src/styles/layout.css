@@ -1,0 +1,78 @@
+/* CONTAINERS, GRIDS */
+
+.container {
+	margin: 0 auto;
+	width: min(1200px, 90%);
+}
+
+.auto-grid {
+	--grid-size: 250px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-size, 250px), 100%), 1fr));
+	gap: 1rem;
+}
+
+.flex-group {
+	display: flex;
+	flex-wrap: wrap;
+	flex-wrap: balance;
+	gap: 1em;
+}
+
+/* Stacking elements with uniformity */
+.stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    --space: var(--space-m);
+}
+
+.stack > * {
+     margin-block: 0;
+}
+
+.stack > * + * {
+    margin-block-start: var(--space, 1.5rem);
+}
+
+.stack.large {
+    --space: var(--space-xl);
+}
+
+.stack.small {
+    --space: var(--space-2xs);
+}
+
+/* Auto-switching sidebar */
+.with-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sidebar {
+  --sidebar-min-width: 16rem;
+  flex-basis: var(--sidebar-min-width, 20rem);
+  flex-grow: 1;
+}
+
+.not-sidebar {
+  --content-min-width: 60%;
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: var(--content-min-width, 50%);
+}
+
+/* Auto-switching  list (especially helpful for 3-card sets */
+.switcher {
+  --min-card-width: 200px;
+  --card-qty: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.switcher > * {
+  flex-grow: 1;
+  flex-basis: calc((var(--min-card-width) * var(--card-qty) - 100%) * 999);
+}

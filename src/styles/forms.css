@@ -1,0 +1,27 @@
+/* INPUTS, BUTTONS */
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select,
+label {
+	font-family: var(--font-body);
+	font-size: var(--size-0);
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+	min-height: 10em;
+}
+
+input,
+textarea {
+	width: 100%;
+	padding: 0.25em;
+}
+
+input:focus,
+textarea:focus {
+	outline-color: var(--clr-primary, inherit);
+}

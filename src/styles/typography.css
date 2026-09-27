@@ -1,0 +1,84 @@
+/* HEADINGS, PARAGRAPHS */
+
+p {
+    --paragraph-font: var(--font-body);
+    font-family: var(--paragraph-font);
+    font-size: var(--size-1);
+    color: var(--clr-light);
+    opacity: 0.65;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+h1, h2, h3, h4, h5 {
+    --heading-font: var(--font-display);
+	font-family: var(--heading-font);
+	font-weight: bold;
+}
+
+h3 {
+    font-size: var(--size-2);
+	opacity: 0.8;
+}
+
+h2 {
+    font-size: var(--size-3);
+	opacity: 0.8;
+}
+
+h1 {
+    font-size: var(--size-4);
+}
+
+.title {
+    font-size: var(--size-5);
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  font-family: var(--font-body);
+  text-decoration-skip-ink: auto;
+  text-decoration: none;
+  color: currentColor;
+  opacity: 0.65;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+a:hover,
+a:focus {
+	opacity: 1;
+	text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+	.title {
+		font-size: var(--size-3);
+	}
+
+	h1 {
+		font-size: var(--size-3);
+	}
+
+	h2 {
+		font-size: var(--size-2);
+	}
+
+	h3 {
+		font-size: var(--size-1);
+	}
+
+	p {
+		font-size: var(--size-0);
+	}
+}

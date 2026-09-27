@@ -1,0 +1,11 @@
+@import './variables.css';
+@import './reset.css';
+@import './typography.css';
+@import './layout.css';
+@import './forms.css';
+@import './utilities.css';
+
+body {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+}

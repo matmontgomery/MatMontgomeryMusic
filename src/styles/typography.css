@@ -8,6 +8,13 @@ p {
     opacity: 0.65;
 }
 
+label {
+	font-family: var(--paragraph-font);
+	font-size: var(--size-0);
+	opacity: 0.8;
+	letter-spacing: 0.1em;
+}
+
 /* Set shorter line heights on headings and interactive elements */
 h1, h2, h3, h4,
 button, input, label {
@@ -23,12 +30,20 @@ h3, h4 {
 h1, h2, h3, h4, h5 {
     --heading-font: var(--font-display);
 	font-family: var(--heading-font);
-	font-weight: bold;
+	font-weight: 400;
+	letter-spacing: -0.02em;
+}
+
+h4 {
+	font-size: var(--size-1);
+	opacity: 0.8;
+	font-weight: 600;
 }
 
 h3 {
     font-size: var(--size-2);
 	opacity: 0.8;
+	font-weight: 500;
 }
 
 h2 {
@@ -50,9 +65,10 @@ a {
   text-decoration-skip-ink: auto;
   text-decoration: none;
   color: currentColor;
-  opacity: 0.65;
+  opacity: 0.8;
   cursor: pointer;
   transition: opacity 0.2s;
+  letter-spacing: 0.1em;
 }
 
 a:hover,
@@ -80,5 +96,9 @@ a:focus {
 
 	p {
 		font-size: var(--size-0);
+	}
+
+	a {
+		opacity: 1;
 	}
 }

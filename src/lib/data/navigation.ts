@@ -6,6 +6,8 @@ export type NavPage = {
 };
 
 export const pages: NavPage[] = [
-    { name: 'Events', href: '/events' },
-    { name: 'About', href: '/about' }
+    { name: 'Performance', href: '/performance' },
+    { name: 'Lessons', href: '/lessons' },
+    { name: 'Compositions', href: '/compositions' },
+    { name: 'Contact', href: '/contact' }
 ];

@@ -5,11 +5,12 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import ContactForm from '$lib/components/ui/ContactForm.svelte';
+	import matTrumpet from '$lib/assets/mat_trumpet_3.avif';
 
 	let showModal = $state(false);
 </script>
 
-<Hero />
+<Hero title="Trumpet Artistry & Pedagogy" text="Performer. Teacher. Composer." background={matTrumpet} />
 
 <Modal bind:open={showModal}>
 	<h2>My Modal</h2>
@@ -18,11 +19,10 @@
 </Modal>
 
 <div class="container stack">
-	<h2>Trusted By</h2>
 	<div class="switcher">
-		<Card title="National Co." />
-		<Card title="Bestuvus" primary />
-		<Card title="Munky-Chunks" secondary />
+		<Card title="The Performer" />
+		<Card title="The Educator" />
+		<Card title="The Composer" />
 	</div>
 	<Cta />
 </div>

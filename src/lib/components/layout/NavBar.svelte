@@ -12,7 +12,9 @@
 
 <nav>
 	<div class="logo">
-		<a href={resolve('/')} onclick={closeMenu}> <img src={logo} alt="logo" /> </a>
+		<a href={resolve('/')} onclick={closeMenu}>
+			<h3 class="color-primary">Mat Montgomery</h3>
+		</a>
 	</div>
 	<button
 		class="menu-toggle"
@@ -28,7 +30,7 @@
 		{#each pages as page (page.href)}
 			<li><a href={resolve(page.href)} onclick={closeMenu}> {page.name} </a></li>
 		{/each}
-		<li><Button text="Contact" --size="var(--size--1)" /></li>
+		<li><Button text="Book Lesson" --size="var(--size--1)" /></li>
 	</ul>
 </nav>
 
@@ -38,19 +40,20 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0.25rem 1rem;
+		padding: 0.75rem 1rem;
+		box-shadow: 0 0 0.1em var(--clr-primary);
 	}
-	.logo {
-		width: var(--size-1);
-	}
+
 	.logo a {
 		display: block;
+		text-decoration: none;
 	}
-	.logo img {
-		display: block;
-		width: 100%;
-		height: auto;
+
+	h3 {
+		text-transform: uppercase;
+		font-size: var(--size-0);
 	}
+
 	.nav-links {
 		margin: 0;
 		padding: 0;
@@ -59,8 +62,10 @@
 		gap: 2rem;
 		list-style: none;
 	}
+
 	.nav-links a {
 		text-decoration: none;
+		font-size: var(--size--1);
 	} 
     
     /* Hamburger button */
@@ -102,7 +107,7 @@
 	} 
     
     /* Mobile */
-	@media (max-width: 700px) {
+	@media (max-width: 1000px) {
 		nav {
 			flex-wrap: wrap;
 		}

@@ -24,11 +24,12 @@
 	button {
 		font-family: var(--font-body);
 		font-size: var(--size, var(--size-0));
-		padding: 0.5em 2em;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		padding: 1em 2em;
 		background-color: var(--clr-primary);
-		border: 1px solid var(--clr-light);
-		border-radius: 100vw;
-		opacity: 0.85;
+		border: none;
+		opacity: 1;
 		scale: 0.99;
 		transition: opacity 0.2s, scale 0.2s;
 		color: var(--clr-dark);
@@ -39,7 +40,7 @@
 	}
 
 	button:hover {
-		opacity: 1;
+		opacity: 0.9;
 		scale: 1;
 	}
 </style>

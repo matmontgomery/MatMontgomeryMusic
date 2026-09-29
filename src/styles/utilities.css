@@ -4,3 +4,6 @@
     text-align: center;
 }
 
+.color-primary {
+    color: var(--clr-primary);
+}

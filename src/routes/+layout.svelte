@@ -3,8 +3,11 @@
 	import '../styles/app.css';
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
+	import Modal from '$lib/components/layout/Modal.svelte';
+	import ContactForm from '$lib/components/ui/ContactForm.svelte';
 
 	let { children } = $props();
+	let showModal = $state(false);
 </script>
 
 <svelte:head>
@@ -19,10 +22,13 @@
 
 <main class="stack large">
 	{@render children()}
+	<Modal bind:open={showModal}>
+		<ContactForm />
+	</Modal>
 </main>
 
 <footer>
-	<Footer />
+	<Footer onclick={() => (showModal = true)} />
 </footer>
 
 <style>

@@ -2,52 +2,62 @@
 	import Button from '../ui/Button.svelte';
 	import { pages } from '$lib/data/navigation';
 	import { resolve } from '$app/paths';
+
+	let { onclick } = $props();
 </script>
 
-<div class="footer">
 	<section>
-		<div class="container with-sidebar">
-			<div class="tag-line sidebar stack">
-				<h2>Trusted <span class="accent">Authority</span></h2>
-				<Button text="Contact" />
+		<div class="container">
+			<h2 class="color-primary">Mat Montgomery</h2>
+			<h3>Trumpet <span class="accent">Artistry</span> & Pedagogy</h3>
+		</div>
+		<div class="container footer-content">
+			<div class="tag-line">
+				<div class="button-container"><Button text="Contact" {onclick} /></div>
 			</div>
-			<div class="switcher not-sidebar" style="--min-card-width:170px">
+			<div class="footer-links">
 				<ul role="list">
-					<li class="label">Links</li>
+					<li class="label"><h4>Links</h4></li>
                     <li><a href={resolve("/")}>Home</a></li>
 					{#each pages as page (page.href)}
 						<li><a href={resolve(page.href)}>{page.name}</a></li>
 					{/each}
-					<li><a href="#">Contact</a></li>
-				</ul>
-				<ul role="list">
-					<li class="label">Social</li>
-					<li><a href="#">Instagram</a></li>
-					<li><a href="#">Facebook</a></li>
-					<li><a href="#">X</a></li>
-				</ul>
-				<ul role="list">
-					<li class="label">Legal</li>
-					<li><a href="#">Privacy Policy</a></li>
-					<li><a href="#">Terms of Service</a></li>
 				</ul>
 			</div>
 		</div>
+		<div class="container copyright-container">
+			<p class="copyright">© {new Date().getFullYear()} Mat Montgomery Music. All rights reserved.</p>
+		</div>
 	</section>
-	<h2 class="footer-brand text-align-center">Brand Name</h2>
-</div>
 
 <style>
-	.footer {
-		background: linear-gradient(var(--clr-light), var(--clr-primary));
-		overflow: clip;
-		margin-top: 5rem;
-	}
 
 	section {
-		border-radius: 0 0 2rem 2rem;
-		background: var(--clr-dark);
-		padding: 2rem 0 10rem 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		min-height: 60dvh;
+		padding: 2rem 0;
+		background: #000;
+		box-shadow: 0 0 0.1em var(--clr-primary);
+		margin-block-start: 5rem;
+	}
+	
+	.footer-content {
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	.tag-line {
+		margin-block-start: var(--space-m);
+	}
+
+	.copyright-container {
+		margin-top: auto;
+	}
+
+	.copyright {
+		font-size: var(--size--1);
 	}
 
 	.accent {
@@ -55,26 +65,27 @@
 		font-style: italic;
 	}
 
-	.tag-line > h2 {
-		font-size: var(--size-2);
-		margin-top: 0;
+	.button-container {
+		width: fit-content;
 	}
 
-	.label {
-		font-family: var(--font-body);
-		font-size: var(--size-0);
+	h2, h3 {
+		text-transform: uppercase;
 	}
 
-	.footer-brand {
-		--brand-chars: 7.5;
-		font-size: calc(100dvw / var(--brand-chars));
-		color: var(--clr-dark);
+	h3 {
 		margin: 0;
-		line-height: 1;
-		opacity: 0.7;
+		margin-block-start: var(--space-3xs);
+	}
+
+	.label > h4 {
+		font-style: italic;
+		color: var(--clr-secondary);
 	}
 
 	ul {
-		text-align: end;
+		margin: 0;
+		padding: 0;
+		margin-block-start: var(--space-m);
 	}
 </style>

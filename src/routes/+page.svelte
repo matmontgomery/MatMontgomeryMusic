@@ -1,8 +1,6 @@
 <script>
-	import Cta from '$lib/components/layout/Cta.svelte';
 	import Hero from '$lib/components/layout/Hero.svelte';
 	import Modal from '$lib/components/layout/Modal.svelte';
-	import Button from '$lib/components/ui/Button.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import ContactForm from '$lib/components/ui/ContactForm.svelte';
 	import matTrumpet from '$lib/assets/mat_trumpet_3.avif';

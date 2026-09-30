@@ -121,23 +121,26 @@
 				type="submit"
 				disabled={status === 'sending'}
 				text={status === 'sending' ? 'Sending...' : 'Send'}
+				--size='var(--size--1)'
 			/>
 		</div>
 	</form>
 </div>
 
 <style>
-    .contact-wrapper {
-        margin-block: var(--space-l);
-    }
 
     h2 {
         margin: 0;
     }
 
+	p {
+		font-size: var(--size-0);
+	}
+
 	form {
 		width: min(100%, 400px);
 		margin-inline: auto;
+		margin-block-start: var(--space-l);
 		display: grid;
 		gap: 1.25rem;
 	}

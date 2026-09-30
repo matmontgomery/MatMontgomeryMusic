@@ -1,15 +1,20 @@
 <script lang="ts">
     import logo from '$lib/assets/favicon.svg'
 	import Button from '../ui/Button.svelte';
+    import type { Snippet } from 'svelte';
 
-    let { title="Hero Title", text="Here is a description of what this page is about", background=logo } = $props();
+    let { title="Hero Title", titleContent, text="Here is a description of what this page is about", background=logo, onclick } : {title: string, titleContent?: Snippet, text: string, background?: string, onclick?: (event: MouseEvent) => void} = $props();
 </script>
 
 <section id="hero" style:--hero-image={background ? `url(${background})` : undefined} >
     <div class="container hero">
-        <h1>{title}</h1>
+        {#if titleContent}
+            {@render titleContent()}
+        {:else}
+            <h1>{title}</h1>
+        {/if}
         <p class="hero-text color-primary">{text}</p>
-        <div><Button text="Contact" /></div>
+        <div><Button text="Contact" {onclick} /></div>
     </div>
 </section>
 
@@ -49,5 +54,7 @@
         text-box: trim-both cap alphabetic;
         text-transform: uppercase;
     }
+
+
 
 </style>

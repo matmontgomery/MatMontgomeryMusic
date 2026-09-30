@@ -73,33 +73,33 @@
 		role="presentation"
 		onclick={handleBackdropClick}
 	>
-		<div
-			bind:this={dialog}
-			class="modal"
-			role="dialog"
-			aria-modal="true"
-			aria-labelledby={title ? titleId : undefined}
-			tabindex="-1"
-			style={`--modal-max-width: ${maxWidth}`}
-		>
-			{#if closeButton}
-				<button
-					class="close-button"
-					type="button"
-					aria-label="Close modal"
-					onclick={close}
-				>
-					<span aria-hidden="true">&times;</span>
-				</button>
-			{/if}
-
-			{#if title}
-				<h2 id={titleId}>{title}</h2>
-			{/if}
-
-			{#if children}
-				{@render children()}
-			{/if}
+		<div class="modal-wrapper">
+			<div
+				bind:this={dialog}
+				class="modal"
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby={title ? titleId : undefined}
+				tabindex="-1"
+				style={`--modal-max-width: ${maxWidth}`}
+			>
+				{#if closeButton}
+					<button
+						class="close-button"
+						type="button"
+						aria-label="Close modal"
+						onclick={close}
+					>
+						<span aria-hidden="true">&times;</span>
+					</button>
+				{/if}
+				{#if title}
+					<h2 id={titleId}>{title}</h2>
+				{/if}
+				{#if children}
+					{@render children()}
+				{/if}
+			</div>
 		</div>
 	</div>
 {/if}
@@ -110,18 +110,18 @@
 		inset: 0;
         margin: 0;
 		z-index: 1000;
-
+		background: rgb(0 0 0 / 0.25);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		animation: fade-in 150ms ease-out;
+		overflow-y: auto;
+	}
+	
+	.modal-wrapper {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
 		padding: 1.5rem;
-
-		background: rgb(0 0 0 / 0.45);
-		backdrop-filter: blur(8px);
-		-webkit-backdrop-filter: blur(8px);
-
-		animation: fade-in 150ms ease-out;
 	}
 
 	.modal {
@@ -129,8 +129,6 @@
 
 		width: min(100%, var(--modal-max-width));
 
-		max-height: calc(100vh - 3rem);
-		overflow-y: auto;
 
 		padding: 2rem;
 
@@ -170,8 +168,14 @@
 		cursor: pointer;
 	}
 
+	.close-button > span {
+		line-height: 1;
+		margin: 0;
+		text-box-trim: trim-end;
+	}
+
 	.close-button:hover {
-		background: rgb(0 0 0 / 0.08);
+		background: hsl(from var(--clr-primary) h s l / 0.5);
 	}
 
 	.close-button:focus-visible {

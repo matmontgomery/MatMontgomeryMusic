@@ -35,10 +35,9 @@
 
 <style>
 	.card {
-		background-color: var(--clr-light);
-		color: var(--clr-dark);
+		background-color: #000;
 		padding: 1rem;
-		border-radius: 1rem;
+		box-shadow: 0 0 1px var(--clr-primary);
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -47,19 +46,46 @@
 	.icon {
 		display: flex;
 		justify-content: center;
+		box-shadow: 0 0 8px -4px var(--clr-primary);
+	}
+	
+	.icon > img {
+		aspect-ratio: 16 / 9;
+		height: 100%; width: 100%;
+		object-fit: cover;
+		object-position: center 10%;
 	}
 
 	h3 {
-		font-size: var(--size-1);
+		font-size: var(--size-2);
+		color: var(--clr-primary);
 	}
 
 	p {
-		color: var(--clr-dark);
 		font-size: var(--size-0);
 	}
 
 	a {
-		text-decoration: underline;
+		color: var(--clr-primary);
+		position: relative;
+		width: fit-content;
+		text-transform: uppercase;
+	}
+
+	a::after {
+		content: " \2192";
+		position: absolute;
+		right: 0;
+		transform: translateX(calc(100% + 0.5em));
+		transition: transform 0.2s ease;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
+	a:hover::after {
+		transform: translateX(calc(100% + 1em));
 	}
 
 	.primary {

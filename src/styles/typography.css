@@ -56,7 +56,8 @@ h1 {
 }
 
 .title {
-    font-size: var(--size-5);
+    text-transform: uppercase;
+	text-align: center;
 }
 
 /* A elements that don't have a class get default styles */

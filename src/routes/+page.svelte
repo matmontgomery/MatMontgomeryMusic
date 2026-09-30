@@ -6,6 +6,7 @@
 	import matTrumpet from '$lib/assets/mat_trumpet_3.avif';
 	import matTrumpet2 from '$lib/assets/mat_trumpet_2.avif';
 	import matTrumpet3 from '$lib/assets/mat_trumpet_1.avif';
+	import Button from '$lib/components/ui/Button.svelte';
 
 	let showModal = $state(false);
 </script>
@@ -14,13 +15,14 @@
 	title="Trumpet Artistry & Pedagogy"
 	text="Performer. Teacher. Composer."
 	background={matTrumpet}
-	onclick={() => (showModal = true)}
+	
 >
 	{#snippet titleContent()}
-		<h1 class="text-align-center">
+		<h1 class="title">
 			Trumpet <span class="accent">Artistry</span> & Pedegogy
 		</h1>
 	{/snippet}
+	<Button text="Contact" onclick={() => (showModal = true)} />
 </Hero>
 
 <Modal bind:open={showModal}>
@@ -56,13 +58,4 @@
 	</div>
 </div>
 
-<style>
-	.accent {
-		font-style: italic;
-		color: var(--clr-secondary);
-	}
 
-	h1 {
-		text-transform: uppercase;
-	}
-</style>

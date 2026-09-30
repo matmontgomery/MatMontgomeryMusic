@@ -7,3 +7,8 @@
 .color-primary {
     color: var(--clr-primary);
 }
+
+.accent {
+    font-style: italic;
+    color: var(--clr-secondary);
+}

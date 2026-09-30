@@ -89,12 +89,10 @@
 	}
 
 	.primary {
-		border: 5px solid var(--clr-primary);
-		box-shadow: 0 0 1em var(--clr-primary);
+		box-shadow: var(--box-shadow);
 	}
 
 	.secondary {
-		border: 5px solid var(--clr-secondary);
-		box-shadow: 0 0 1em var(--clr-secondary);
+		box-shadow: var(--box-shadow-secondary);
 	}
 </style>

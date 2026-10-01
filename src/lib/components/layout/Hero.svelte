@@ -44,7 +44,7 @@
 	#hero {
 		padding-block: var(--space-3xl);
 		background: linear-gradient(hsl(0 0 0 / 55%), var(--clr-dark)), var(--hero-image);
-		background-position: center;
+		background-position: center 15%;
 		background-size: cover;
 		background-repeat: no-repeat;
 	}

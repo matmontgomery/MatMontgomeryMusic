@@ -29,6 +29,7 @@
 		padding: 1em 2em;
 		background-color: var(--clr-primary);
 		border: none;
+		border-radius: var(--border-radius-sm);
 		opacity: 1;
 		scale: 0.99;
 		transition: opacity 0.2s, scale 0.2s;

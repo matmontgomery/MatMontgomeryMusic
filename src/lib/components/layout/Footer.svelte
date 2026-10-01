@@ -40,7 +40,7 @@
 		padding: 2rem 0;
 		background: #000;
 		box-shadow: 0 0 0.1em var(--clr-primary);
-		margin-block-start: 5rem;
+		margin-block-start: var(--space-3xl);
 	}
 	
 	.footer-content {
@@ -87,5 +87,9 @@
 		margin: 0;
 		padding: 0;
 		margin-block-start: var(--space-m);
+	}
+
+	a:hover {
+		color: var(--clr-primary);
 	}
 </style>

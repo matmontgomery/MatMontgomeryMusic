@@ -4,6 +4,7 @@
 	type Props = HTMLButtonAttributes & {
 		text?: string;
 		secondary?: boolean;
+		outline?: boolean;
 	};
 
 	let {
@@ -12,11 +13,12 @@
 		onclick,
 		disabled = false,
 		secondary = false,
+		outline = false,
 		...rest
 	}: Props = $props();
 </script>
 
-<button {...rest} {type} {onclick} {disabled} class:secondary>
+<button {...rest} {type} {onclick} {disabled} class:secondary class:outline >
 	{text}
 </button>
 
@@ -28,7 +30,7 @@
 		text-transform: uppercase;
 		padding: 1em 2em;
 		background-color: var(--clr-primary);
-		border: none;
+		border: 1px solid;
 		border-radius: var(--border-radius-sm);
 		opacity: 1;
 		scale: 0.99;
@@ -37,7 +39,13 @@
 	}
 
 	.secondary {
-		background-color: var(--clr-secondary);
+		color: var(--clr-secondary);
+		background-color: var(--surface-container-highest);
+	}
+
+	.outline {
+		color: var(--clr-primary);
+		background-color: var(--clr-dark);
 	}
 
 	button:hover {

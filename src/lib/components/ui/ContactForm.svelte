@@ -62,11 +62,15 @@
 	function handleTurnstileError() {
 		turnstileToken = '';
 	}
+
+	let { noHeader = false }: { noHeader?: boolean } = $props();
 </script>
 
 <div class="contact-wrapper">
-	<h2>Contact</h2>
-	<p>We look forward to hearing from you. We aim to reply within 1-2 business days.</p>
+	{#if !noHeader}
+		<h2>Contact</h2>
+		<p>We look forward to hearing from you. We aim to reply within 1-2 business days.</p>
+	{/if}
 
 	<form onsubmit={handleSubmit}>
 		<!-- Honeypot -->
@@ -121,17 +125,16 @@
 				type="submit"
 				disabled={status === 'sending'}
 				text={status === 'sending' ? 'Sending...' : 'Send'}
-				--size='var(--size--1)'
+				--size="var(--size--1)"
 			/>
 		</div>
 	</form>
 </div>
 
 <style>
-
-    h2 {
-        margin: 0;
-    }
+	h2 {
+		margin: 0;
+	}
 
 	p {
 		font-size: var(--size-0);

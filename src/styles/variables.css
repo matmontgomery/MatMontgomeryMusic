@@ -89,7 +89,7 @@
 	--clr-secondary: var(--secondary);
 
 	--border-radius-sm: 4px;
-    --border-radius-md: 0.25em;
+    --border-radius-md: 12px;
 
     --box-shadow: 0 0 1em var(--clr-primary);
     --box-shadow-sm: 0 0 0.1em var(--clr-primary);

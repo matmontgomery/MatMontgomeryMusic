@@ -12,7 +12,7 @@
 		onclick,
         children
 	}: {
-		title: string;
+		title?: string;
 		titleContent?: Snippet;
 		subText?: string;
 		text?: string;

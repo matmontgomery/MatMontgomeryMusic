@@ -8,6 +8,13 @@ p {
     opacity: 0.65;
 }
 
+li {
+	font-family: var(--font-body);
+	font-size: var(--size-0);
+	color: var(--clr-light);
+	opacity: 0.65;
+}
+
 label {
 	font-family: var(--paragraph-font);
 	font-size: var(--size-0);

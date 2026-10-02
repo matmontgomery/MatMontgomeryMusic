@@ -30,7 +30,7 @@
 </Modal>
 
 <div class="container stack">
-	<div class="switcher">
+	<div class="switcher" style="--min-card-width: 250px">
 		<Card
 			title="The Performer"
 			text="Professional trumpet player with dual performance degrees and worldwide touring experience with the Glenn Miller Orchestra."
@@ -53,7 +53,7 @@
 			src={matTrumpet3}
 			alt="Mat playing trumpet."
 			href="compositions"
-			linkText="Browse Compositions"
+			linkText="Browse Music"
 		/>
 	</div>
 </div>

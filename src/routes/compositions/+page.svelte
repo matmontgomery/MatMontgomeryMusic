@@ -17,7 +17,7 @@
     {/snippet}
     <div class="flex-group">
         <Button text="Commission a Piece" style="--size: var(--size--1)" />
-        <Button text="Browse Selected Works" outline style="--size:var(--size--1)" />
+        <Button text="Browse Selected Works" outline style="--size: var(--size--1)" />
     </div>
 </Hero>
 

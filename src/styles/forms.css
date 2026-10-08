@@ -10,15 +10,25 @@ label {
 	font-size: var(--size-0);
 }
 
+label {
+	text-transform: uppercase;
+}
+
 /* Make sure textareas without a rows attribute are not tiny */
 textarea:not([rows]) {
 	min-height: 10em;
 }
 
 input,
-textarea {
+textarea,
+option,
+select {
 	width: 100%;
 	padding: 0.25em;
+	background-color: var(--surface-container-highest);
+	color: var(--clr-light);
+	border: 1px solid var(--outline);
+	border-radius: var(--border-radius-sm);
 }
 
 input:focus,

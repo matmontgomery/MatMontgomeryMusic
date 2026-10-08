@@ -57,7 +57,7 @@
 }
 
 .not-sidebar {
-  --content-min-width: 60%;
+  --content-min-width: 40%;
   flex-basis: 0;
   flex-grow: 999;
   min-inline-size: var(--content-min-width, 50%);

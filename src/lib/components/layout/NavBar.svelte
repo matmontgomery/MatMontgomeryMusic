@@ -1,9 +1,10 @@
 <script lang="ts">
-	import logo from '$lib/assets/favicon.svg';
 	import Button from '../ui/Button.svelte';
 	import { resolve } from '$app/paths';
-	let menuOpen = $state(false);
     import { pages } from '$lib/data/navigation';
+	import { goto } from '$app/navigation';
+	
+	let menuOpen = $state(false);
 
 	function closeMenu() {
 		menuOpen = false;
@@ -30,7 +31,7 @@
 		{#each pages as page (page.href)}
 			<li><a href={resolve(page.href)} onclick={closeMenu}> {page.name} </a></li>
 		{/each}
-		<li><Button text="Book Lesson" --size="var(--size--1)" /></li>
+		<li><Button text="Book Lesson" --size="var(--size--1)" onclick={() => goto('/lessons#book')} /></li>
 	</ul>
 </nav>
 

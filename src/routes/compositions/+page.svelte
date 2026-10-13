@@ -64,7 +64,7 @@
             </ol>
             <div class="cert">
                 <img src="" alt="">
-                <p>All commissioned charts include exclusive performance rirghts for the premiere season.</p>
+                <p>All commissioned charts include exclusive performance rights for the premiere season.</p>
             </div>
         </div>
         <div class="sidebar" style="--sidebar-min-width: 24rem;">

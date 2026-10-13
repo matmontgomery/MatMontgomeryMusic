@@ -7,7 +7,12 @@
 </script>
 
 <Hero
-	text="Mat has been teaching trumpet for over 20 years, holding a WA state teaching cdertificate with an endorsement in music education. He is dedicated to cultivation musicianship through disciplined technique, incremental progress, and ongoing motivation."
+	text=
+		"Mat has been teaching trumpet for over 20 years, 
+		holding a WA state teaching certificate with an endorsement in music education. 
+		He is dedicated to cultivation musicianship through disciplined technique, 
+		incremental progress, and ongoing motivation.
+		Mat currently teaches lessons in the greater Olympia area."
 	background={matTrumpet}
 >
 	{#snippet titleContent()}
@@ -76,7 +81,7 @@
 			<div class="lesson-card">
 				<h3>Weekly 60 Min</h3>
 				<p>Weekly 60-minute private lessons. Comprehensive training for advanced learners.</p>
-				<h3><span class="price">$140</span>/mo</h3>
+				<h3><span class="price">$250</span>/mo</h3>
 				<hr class="card-break" />
 				<ul>
 					<li>Individual instruction</li>

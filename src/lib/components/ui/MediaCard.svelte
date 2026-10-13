@@ -88,7 +88,6 @@
 
 </style> -->
 
-
 <script lang="ts">
 	import logo from '$lib/assets/favicon.svg';
 
@@ -101,6 +100,7 @@
 		label?: string;
 		background?: string;
 		artist?: string;
+        details?: string;
 	}
 
 	let {
@@ -109,7 +109,8 @@
 		title,
 		label = 'Live Recording',
 		background = logo,
-		artist
+		artist,
+        details
 	}: Props = $props();
 
 	let audioEl: HTMLAudioElement;
@@ -136,9 +137,7 @@
 					return parsed.searchParams.get('v');
 				}
 
-				const match = parsed.pathname.match(
-					/^\/(?:embed|shorts)\/([^/]+)/
-				);
+				const match = parsed.pathname.match(/^\/(?:embed|shorts)\/([^/]+)/);
 
 				return match?.[1] ?? null;
 			}
@@ -176,16 +175,13 @@
 	}
 </script>
 
-<article
-	class="media-card"
-	style:--image={background ? `url("${background}")` : 'none'}
->
+<article class="media-card" style:--image={background ? `url("${background}")` : 'none'}>
 	{#if type === 'youtube'}
 		<div class="video-container">
 			{#if youtubeId}
 				<iframe
 					src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
-					title={title}
+					{title}
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 					referrerpolicy="strict-origin-when-cross-origin"
 					allowfullscreen
@@ -197,19 +193,23 @@
 	{/if}
 
 	<div class="details stack">
-        <p class="label" class:video={type === 'youtube'}>{label}</p>
+		<p class="label" class:video={type === 'youtube'}>{label}</p>
 		<div class="text stack small">
 			<h2 class="media-title">{title}</h2>
 
 			{#if artist}
 				<p class="artist">{artist}</p>
 			{/if}
+
+            {#if details}
+                <p class="details">{details}</p>
+            {/if}
 		</div>
 
 		{#if type === 'audio'}
 			<audio
 				bind:this={audioEl}
-				src={src}
+				{src}
 				preload="metadata"
 				onplay={() => (isPlaying = true)}
 				onpause={() => (isPlaying = false)}
@@ -236,18 +236,27 @@
 					{/if}
 				</button>
 
-				<input
-					class="progress-bar"
-					type="range"
-					min="0"
-					max={duration || 0}
-					step="0.1"
-					value={Math.min(currentTime, duration || 0)}
-					oninput={(event) => seek(Number(event.currentTarget.value))}
-					disabled={!duration}
-					aria-label="Recording progress"
+				<div
+					class="progress"
 					style={`--progress: ${duration ? (currentTime / duration) * 100 : 0}%`}
-				/>
+				>
+					<div class="progress-track" aria-hidden="true">
+						<div class="progress-fill"></div>
+						<div class="progress-thumb"></div>
+					</div>
+
+					<input
+						class="progress-input"
+						type="range"
+						min="0"
+						max={duration || 0}
+						step="0.1"
+						value={Math.min(currentTime, duration || 0)}
+						oninput={(event) => seek(Number(event.currentTarget.value))}
+						disabled={!duration}
+						aria-label="Recording progress"
+					/>
+				</div>
 
 				<p class="time">
 					{formatTime(currentTime)}/{formatTime(duration)}
@@ -265,10 +274,10 @@
 		flex-direction: column;
 		justify-content: end;
 		background-color: var(--surface-container);
-		background-image:
-			linear-gradient(transparent 15%, var(--clr-primary)),
-			var(--image);
-		background-position: center, center 15%;
+		background-image: linear-gradient(transparent 15%, var(--clr-primary)), var(--image);
+		background-position:
+			center,
+			center 15%;
 		background-size: cover;
 		background-repeat: no-repeat;
 		box-shadow: var(--box-shadow-sm);
@@ -281,10 +290,10 @@
 		background-color: var(--surface-container);
 	}
 
-    .details > .text {
-        border-left: 1px solid var(--outline);
-        padding-left: 1em;
-    }
+	.details > .text {
+		border-left: 1px solid var(--outline);
+		padding-left: 1em;
+	}
 
 	.label {
 		color: var(--clr-secondary);
@@ -296,9 +305,9 @@
 		text-transform: uppercase;
 	}
 
-    .label.video {
-        position: relative;
-    }
+	.label.video {
+		position: relative;
+	}
 
 	.media-title {
 		font-size: var(--size-0);
@@ -336,49 +345,102 @@
 		height: 100%;
 	}
 
-	.play-pause:focus-visible,
-	.progress-bar:focus-visible {
+	.play-pause:focus-visible {
 		outline: 2px solid var(--clr-primary);
 		outline-offset: 3px;
 	}
 
-	.progress-bar {
+	.progress {
+		--thumb-size: 8px;
+
+		position: relative;
 		flex: 1;
 		min-width: 0;
-		height: 5px;
-		appearance: none;
-		-webkit-appearance: none;
-		background: var(--surface-container-highest);
-		background-image: linear-gradient(
-			var(--clr-primary),
-			var(--clr-primary)
-		);
-		background-size: var(--progress) 100%;
-		background-repeat: no-repeat;
-		border-radius: var(--border-radius-sm);
+		height: 20px;
+		display: flex;
+		align-items: center;
 		cursor: pointer;
 	}
 
-	.progress-bar::-webkit-slider-thumb {
-		appearance: none;
-		-webkit-appearance: none;
-		width: 12px;
-		height: 12px;
-		border-radius: 50%;
-		background: var(--clr-primary);
+	/* The thin, understated track */
+	.progress-track {
+		position: absolute;
+		left: calc(var(--thumb-size) / 2);
+		right: calc(var(--thumb-size) / 2);
+		height: 2px;
+		background: var(--surface-container-highest);
+		border-radius: 999px;
+		pointer-events: none;
+		transition: height 180ms ease;
 	}
 
-	.progress-bar::-moz-range-thumb {
-		width: 12px;
-		height: 12px;
-		border: none;
-		border-radius: 50%;
+	.progress-fill {
+		width: var(--progress);
+		height: 100%;
 		background: var(--clr-primary);
+		border-radius: inherit;
 	}
 
-	.progress-bar:disabled {
+	/* Small, refined thumb — hidden until interaction */
+	.progress-thumb {
+		position: absolute;
+		top: 50%;
+		left: var(--progress);
+		width: var(--thumb-size);
+		height: var(--thumb-size);
+		background: var(--clr-primary);
+		border-radius: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		opacity: 0;
+		transition:
+			transform 180ms ease,
+			opacity 180ms ease;
+	}
+
+	/* Transparent range input handles all pointer and keyboard input */
+	.progress-input {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		opacity: 0;
+		cursor: pointer;
+	}
+
+	/* Reveal the thumb on hover or keyboard focus */
+	.progress:hover .progress-thumb,
+	.progress:focus-within .progress-thumb {
+		transform: translate(-50%, -50%) scale(1);
+		opacity: 1;
+	}
+
+	/* Subtle emphasis while interacting */
+	.progress:hover .progress-track,
+	.progress:focus-within .progress-track {
+		height: 3px;
+	}
+
+	.progress-input:focus-visible {
+		outline: 2px solid var(--clr-primary);
+		outline-offset: 3px;
+		border-radius: 4px;
+	}
+
+	.progress-input:disabled {
+		cursor: default;
+	}
+
+	.progress:has(.progress-input:disabled) {
 		cursor: default;
 		opacity: 0.6;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.progress-track,
+		.progress-thumb {
+			transition: none;
+		}
 	}
 
 	.time {

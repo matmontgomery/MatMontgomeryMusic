@@ -36,7 +36,7 @@
 				type="youtube"
 				src="https://youtu.be/M_3xEvhzNAM?si=A52wZ6cM76636xkj"
 				title="Mask I"
-				label="Performance Video"
+				label="Video"
 				artist="Mat Montgomery"
 			/>
 			<script lang="ts">
@@ -45,11 +45,11 @@
 
 			<MediaCard
 				type="audio"
-				src="/audio/hummel-concerto.mp3"
-				title="Hummel: Trumpet Concerto in E-flat Major"
-				label="Live Recording"
+				src="/audio/DPM16002.mp3"
+				title="Cake Mix"
+				label="Studiio Recording"
 				background={matTrumpet1}
-				artist="Jane Smith"
+				artist="Dapper Page Big Band"
 			/>
 		</div>
 	</div>

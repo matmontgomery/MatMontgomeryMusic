@@ -4,6 +4,7 @@
 	import matTrumpet from '$lib/assets/mat_trumpet_1.avif';
 	import matTrumpet2 from '$lib/assets/mat_trumpet_2.avif';
 	import ContactForm from '$lib/components/ui/ContactForm.svelte';
+	import LessonForm from '$lib/components/ui/LessonForm.svelte';
 </script>
 
 <Hero
@@ -131,7 +132,7 @@
             <h2>Book A Lesson</h2>
             <p>Lessons are currently available. Contact Mat to book your lessons today. Space is limited.</p>
         </div>
-        <ContactForm noHeader/>
+        <LessonForm noHeader />
     </div>
 </section>
 

@@ -3,15 +3,35 @@
 	import { resolve } from '$app/paths';
     import { pages } from '$lib/data/navigation';
 	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
 	
 	let menuOpen = $state(false);
+	let navElement: HTMLElement;
 
 	function closeMenu() {
 		menuOpen = false;
 	}
+
+	onMount(() => {
+		function handleClickOutside(event: MouseEvent) {
+			if (
+				menuOpen &&
+				navElement &&
+				!navElement.contains(event.target as Node)
+			) {
+				menuOpen = false;
+			}
+		}
+
+		document.addEventListener('click', handleClickOutside);
+
+		return () => {
+			document.removeEventListener('click', handleClickOutside);
+		};
+	});
 </script>
 
-<nav>
+<nav bind:this={navElement}>
 	<div class="logo">
 		<a href={resolve('/')} onclick={closeMenu}>
 			<h3 class="color-primary">Mat Montgomery</h3>

@@ -6,6 +6,11 @@
 	import matTrumpet from '$lib/assets/mat_trumpet_3.avif';
 	import matTrumpet2 from '$lib/assets/mat_trumpet_2.avif';
 	import matTrumpet3 from '$lib/assets/mat_trumpet_1.avif';
+	import matTrumpet4 from '$lib/assets/mat_trumpet_4.avif';
+	import matTrumpet5 from '$lib/assets/mat_trumpet_5.avif';
+	import matWithBigBand from '$lib/assets/mat_with_big_band.avif';
+	import matTeaching from '$lib/assets/mat_teaching_2.avif';
+	import matPiano from '$lib/assets/mat_piano.avif';
 	import Button from '$lib/components/ui/Button.svelte';
 
 	let showModal = $state(false);
@@ -14,7 +19,7 @@
 <Hero
 	title="Trumpet Artistry & Pedagogy"
 	text="Performer. Teacher. Composer."
-	background={matTrumpet}
+	background={matTrumpet5}
 	
 >
 	{#snippet titleContent()}
@@ -38,7 +43,7 @@
 			<Card
 				title="The Performer"
 				text="Professional trumpet player with dual performance degrees and worldwide touring experience with the Glenn Miller Orchestra."
-				src={matTrumpet}
+				src={matTrumpet2}
 				alt="Mat playing trumpet."
 				href="/performance"
 				linkText="View Profile"
@@ -46,7 +51,7 @@
 			<Card
 				title="The Educator"
 				text="Over 20 years of experience offering personalized trumpet instruction, helping students reach their fullest potential."
-				src={matTrumpet2}
+				src={matTeaching}
 				alt="Mat playing trumpet."
 				href="/lessons"
 				linkText="Explore Lessons"
@@ -54,7 +59,7 @@
 			<Card
 				title="The Composer"
 				text="Founder of Dapper Page Music, specializing in modern big band compositions played by school and professional bands globally."
-				src={matTrumpet3}
+				src={matPiano}
 				alt="Mat playing trumpet."
 				href="compositions"
 				linkText="Browse Music"

@@ -39,9 +39,20 @@
 				label="Video"
 				artist="Mat Montgomery"
 			/>
-			<script lang="ts">
-				import MediaCard from '$lib/components/ui/MediaCard.svelte';
-			</script>
+			<MediaCard
+				type="youtube"
+				src="https://youtu.be/Jy5uWhT3gew?si=E9Rmsoz-HPfeTUHE"
+				title="Mask II"
+				label="Video"
+				artist="Mat Montgomery"
+			/>
+			<MediaCard
+				type="youtube"
+				src="https://youtu.be/I0qAvFHJmvs?si=QSm0eHHep1zT5RvO"
+				title="Mask III"
+				label="Video"
+				artist="Mat Montgomery"
+			/>
 
 			<MediaCard
 				type="audio"

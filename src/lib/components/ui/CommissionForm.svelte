@@ -81,6 +81,7 @@
 	{/if}
 
 	<form onsubmit={handleSubmit}>
+		<input type="hidden" name="formType" value="commission">
 		<!-- Honeypot -->
 		<div class="honeypot" aria-hidden="true">
 			<label for="website">Website</label>
@@ -91,6 +92,12 @@
 			<label for="name">Director Name</label>
 
 			<input id="name" name="name" type="text" bind:value={name} autocomplete="name" required />
+		</div>
+
+		<div>
+			<label for="school">School/Organization</label>
+
+			<input id="school" name="school" type="text" bind:value={school} autocomplete="organization" required />
 		</div>
 		
 		<div>

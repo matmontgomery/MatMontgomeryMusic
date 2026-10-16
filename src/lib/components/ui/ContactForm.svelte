@@ -73,10 +73,11 @@
 	{/if}
 
 	<form onsubmit={handleSubmit}>
+		<input type="hidden" name="formType" value="general">
 		<!-- Honeypot -->
 		<div class="honeypot" aria-hidden="true">
 			<label for="website">Website</label>
-			<input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+			<input id="website" name="website" type="text" tabindex="-1" autocomplete="new-password" />
 		</div>
 
 		<div>

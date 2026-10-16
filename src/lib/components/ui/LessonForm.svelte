@@ -44,7 +44,11 @@
 			status = 'success';
 
 			stuName = '';
+			age = '';
+			parentName = '';
+			parent2Name = '';
 			email = '';
+			phone = '';
 			message = '';
 			turnstileToken = '';
 		} catch (error) {
@@ -77,6 +81,7 @@
 	{/if}
 
 	<form onsubmit={handleSubmit}>
+		<input type="hidden" name="formType" value="lesson">
 		<!-- Honeypot -->
 		<div class="honeypot" aria-hidden="true">
 			<label for="website">Website</label>
@@ -84,9 +89,9 @@
 		</div>
 
 		<div>
-			<label for="student-name">Student Name</label>
+			<label for="studentName">Student Name</label>
 
-			<input id="student-name" name="student-name" type="text" bind:value={stuName} required />
+			<input id="studentName" name="studentName" type="text" bind:value={stuName} required />
 		</div>
 
 		<div>
@@ -96,11 +101,11 @@
 		</div>
 
 		<div>
-			<label for="parent-name">Parent Name</label>
+			<label for="parentName">Parent Name</label>
 
 			<input
-				id="parent-name"
-				name="parent-name"
+				id="parentName"
+				name="parentName"
 				type="text"
 				bind:value={parentName}
 				autocomplete="name"
@@ -109,9 +114,9 @@
 		</div>
 
 		<div>
-			<label for="parent-name-2">Additional Parent Name (opt.)</label>
+			<label for="parent2Name">Additional Parent Name (opt.)</label>
 
-			<input id="parent-name-2" name="parent-name-2" type="text" bind:value={parent2Name} />
+			<input id="parent2Name" name="parent2Name" type="text" bind:value={parent2Name} />
 		</div>
 
 		<div>

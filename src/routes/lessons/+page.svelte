@@ -3,8 +3,8 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import matTrumpet from '$lib/assets/mat_trumpet_1.avif';
 	import matTrumpet2 from '$lib/assets/mat_trumpet_2.avif';
-	import ContactForm from '$lib/components/ui/ContactForm.svelte';
 	import LessonForm from '$lib/components/ui/LessonForm.svelte';
+	import { goto } from '$app/navigation';
 </script>
 
 <Hero
@@ -19,7 +19,7 @@
 	{#snippet titleContent()}
 		<h1 class="title">Trumpet <span class="accent">Studio</span></h1>
 	{/snippet}
-	<Button text="Sign Up For Lessons" />
+	<Button text="Sign Up For Lessons" onclick={() => {goto('#book')}} />
 </Hero>
 
 <section id="pedegogy">
@@ -91,7 +91,7 @@
 					<li>All-State or solo prep</li>
 					<li>Great for advanced high school players</li>
 				</ul>
-				<Button text="Book Now" secondary />
+				<Button text="Book Now" secondary onclick={() => {goto('#book')}} />
 			</div>
 			<div class="lesson-card featured">
 				<h3>Weekly 30 Min</h3>
@@ -105,7 +105,7 @@
 					<li>All-State or solo prep</li>
 					<li>Great for elementary through high school players</li>
 				</ul>
-				<Button text="Book Now" />
+				<Button text="Book Now" onclick={() => {goto('#book')}} />
 			</div>
 			<div class="lesson-card">
 				<h3>Custom Clinic</h3>
@@ -120,7 +120,7 @@
 					<li>Improv workshops</li>
                     <li>Guest clinics</li>
 				</ul>
-				<Button text="Inquire" outline />
+				<Button text="Inquire" outline onclick={() => {goto('/contact')}} />
 			</div>
 		</div>
 	</div>

@@ -2,16 +2,16 @@
 This is a base starter project in SvelteKit that can be used as a template for future projects.
 
 ## Mat Montgomery Music Todos
-* close the navbar menu when clicking outside
+* ~~close the navbar menu when clicking outside~~
 * Add more picture
 * Add audio and score images
-* Connect contact forms backend
-* Modify lessons contact form for lessons
-* Play/pause/scrub audio/video on performance page
-* Connect buttons on lessons page
-  * "Sign up for Lessons"
-  * "Book Now" x2
-  * "Inquire"
+* ~~Connect contact forms backend~~
+* ~~Modify lessons contact form for lessons~~
+* ~~Play/pause/scrub audio/video on performance page~~
+* ~~Connect buttons on lessons page~~
+  *~~ "Sign up for Lessons"~~
+  * ~~"Book Now" x2~~
+  * ~~"Inquire"~~
 * Add icons
   * "Certified Instruction" cell on lessons page
   * Exclusive performance rights box in composition
@@ -22,7 +22,7 @@ This is a base starter project in SvelteKit that can be used as a template for f
     * Audio/Video
     * Score images
     * Buying options
-* Connect commission inquiry form
+* ~~Connect commission inquiry form~~
 * Contact page is pretty bare.
 
 

@@ -3,12 +3,8 @@
 	import Modal from '$lib/components/layout/Modal.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
 	import ContactForm from '$lib/components/ui/ContactForm.svelte';
-	import matTrumpet from '$lib/assets/mat_trumpet_3.avif';
 	import matTrumpet2 from '$lib/assets/mat_trumpet_2.avif';
-	import matTrumpet3 from '$lib/assets/mat_trumpet_1.avif';
-	import matTrumpet4 from '$lib/assets/mat_trumpet_4.avif';
 	import matTrumpet5 from '$lib/assets/mat_trumpet_5.avif';
-	import matWithBigBand from '$lib/assets/mat_with_big_band.avif';
 	import matTeaching from '$lib/assets/mat_teaching_2.avif';
 	import matPiano from '$lib/assets/mat_piano.avif';
 	import Button from '$lib/components/ui/Button.svelte';

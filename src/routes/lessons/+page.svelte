@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	import Hero from '$lib/components/layout/Hero.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import matTrumpet from '$lib/assets/mat_trumpet_1.avif';
@@ -8,8 +8,7 @@
 </script>
 
 <Hero
-	text=
-		"Mat has been teaching trumpet for over 20 years, 
+	text="Mat has been teaching trumpet for over 20 years, 
 		holding a WA state teaching certificate with an endorsement in music education. 
 		He is dedicated to cultivation musicianship through disciplined technique, 
 		incremental progress, and ongoing motivation.
@@ -19,7 +18,12 @@
 	{#snippet titleContent()}
 		<h1 class="title">Trumpet <span class="accent">Studio</span></h1>
 	{/snippet}
-	<Button text="Sign Up For Lessons" onclick={() => {goto('#book')}} />
+	<Button
+		text="Sign Up For Lessons"
+		onclick={() => {
+			goto('#book');
+		}}
+	/>
 </Hero>
 
 <section id="pedegogy">
@@ -41,8 +45,8 @@
 					articulation, range, and speed are worked on each week.
 				</p>
 			</div>
-			<div class="honors">
-				<img src="" alt="" />
+			<div class="honors stack small">
+				<div class="icon"><span class="material-symbols-outlined"> workspace_premium </span></div>
 				<h3>Student Honors</h3>
 				<ul>
 					<li>All-State Jazz Band</li>
@@ -51,7 +55,7 @@
 				</ul>
 			</div>
 			<div class="certified stack small">
-				<img src="" alt="" />
+				<div class="icon"><span class="material-symbols-outlined"> school </span></div>
 				<h3>Certified Instruction</h3>
 				<p>
 					As a certified music educator, Mat has spent more than two decades he has been honing his
@@ -91,7 +95,13 @@
 					<li>All-State or solo prep</li>
 					<li>Great for advanced high school players</li>
 				</ul>
-				<Button text="Book Now" secondary onclick={() => {goto('#book')}} />
+				<Button
+					text="Book Now"
+					secondary
+					onclick={() => {
+						goto('#book');
+					}}
+				/>
 			</div>
 			<div class="lesson-card featured">
 				<h3>Weekly 30 Min</h3>
@@ -105,35 +115,46 @@
 					<li>All-State or solo prep</li>
 					<li>Great for elementary through high school players</li>
 				</ul>
-				<Button text="Book Now" onclick={() => {goto('#book')}} />
+				<Button
+					text="Book Now"
+					onclick={() => {
+						goto('#book');
+					}}
+				/>
 			</div>
 			<div class="lesson-card">
 				<h3>Custom Clinic</h3>
-				<p>Hire Mat to help inspire and educate your trumpets, bands, and jazzers.
-                    
-                </p>
+				<p>Hire Mat to help inspire and educate your trumpets, bands, and jazzers.</p>
 				<h3 class="price">$Custom</h3>
 				<hr class="card-break" />
 				<ul>
 					<li>Sectional coaching</li>
 					<li>Masterclasses</li>
 					<li>Improv workshops</li>
-                    <li>Guest clinics</li>
+					<li>Guest clinics</li>
 				</ul>
-				<Button text="Inquire" outline onclick={() => {goto('/contact')}} />
+				<Button
+					text="Inquire"
+					outline
+					onclick={() => {
+						goto('/contact');
+					}}
+				/>
 			</div>
 		</div>
 	</div>
 </section>
 
 <section id="book">
-    <div class="container">
-        <div class="book-text">
-            <h2>Book A Lesson</h2>
-            <p>Lessons are currently available. Contact Mat to book your lessons today. Space is limited.</p>
-        </div>
-        <LessonForm noHeader />
-    </div>
+	<div class="container">
+		<div class="book-text">
+			<h2>Book A Lesson</h2>
+			<p>
+				Lessons are currently available. Contact Mat to book your lessons today. Space is limited.
+			</p>
+		</div>
+		<LessonForm noHeader />
+	</div>
 </section>
 
 <style>
@@ -186,6 +207,14 @@
 		font-size: var(--size--1);
 	}
 
+	.icon {
+		padding-bottom: 1em;
+	}
+
+	.icon > span {
+		font-size: var(--size-2);
+	}
+
 	.technical {
 		grid-area: technical;
 		background: linear-gradient(90deg, hsl(0 0 0 / 0.5), var(--clr-dark) 80%), var(--background);
@@ -227,15 +256,15 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-        padding: 2rem !important;
+		padding: 2rem !important;
 	}
 
 	blockquote {
 		font-family: var(--font-display);
-        font-size: var(--size-0);
+		font-size: var(--size-0);
 		font-style: italic;
 		text-align: center;
-        opacity: 0.8;
+		opacity: 0.8;
 	}
 
 	.attr {
@@ -243,10 +272,10 @@
 		text-align: center;
 	}
 
-    .packages-text {
-        width: min(100%, 600px);
-        margin-inline: auto;
-    }
+	.packages-text {
+		width: min(100%, 600px);
+		margin-inline: auto;
+	}
 
 	.lesson-card {
 		background-color: var(--clr-dark);
@@ -298,7 +327,7 @@
 		color: var(--clr-primary);
 	}
 
-    .book-text {
-        width: min(100%, 500px);
-    }
+	.book-text {
+		width: min(100%, 500px);
+	}
 </style>

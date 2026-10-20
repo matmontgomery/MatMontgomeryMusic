@@ -4,8 +4,31 @@
 @import './layout.css';
 @import './forms.css';
 @import './utilities.css';
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block');
 
 body {
-    background-color: var(--clr-dark);
-    color: var(--clr-light);
+	background-color: var(--clr-dark);
+	color: var(--clr-light);
+}
+
+.material-symbols-outlined {
+	color: var(--clr-primary);
+	opacity: 0.6;
+	font-family: 'Material Symbols Outlined';
+	font-weight: normal;
+	font-style: normal;
+	font-size: var(--size-1);
+	line-height: 1;
+    text-box-trim: trim-both;
+	display: inline-block;
+	white-space: nowrap;
+	direction: ltr;
+	font-feature-settings: 'liga';
+	-webkit-font-smoothing: antialiased;
+
+	font-variation-settings:
+		'FILL' 0,
+		'wght' 400,
+		'GRAD' 0,
+		'opsz' 24;
 }

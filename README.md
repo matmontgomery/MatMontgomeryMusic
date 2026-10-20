@@ -14,7 +14,7 @@ This is a base starter project in SvelteKit that can be used as a template for f
   * ~~"Inquire"~~
 * Add icons
   * "Certified Instruction" cell on lessons page
-  * Exclusive performance rights box in composition
+  * ~~Exclusive performance rights box in composition~~
   * Others? (Check design)
 * Select pieces to showcase on compositions
     * Cover art

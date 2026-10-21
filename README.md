@@ -23,7 +23,7 @@ This is a base starter project in SvelteKit that can be used as a template for f
     * Score images
     * Buying options
 * ~~Connect commission inquiry form~~
-* Contact page is pretty bare.
+* ~~Contact page is pretty bare.~~
 
 
 ## New Project

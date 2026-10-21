@@ -1,6 +1,6 @@
 <script>
 	import Hero from "$lib/components/layout/Hero.svelte";
-    import matTrumpet from "$lib/assets/mat_trumpet_2.avif"
+    import matTrumpet from "$lib/assets/mat_directing_2.avif"
 	import ContactPageContactForm from "$lib/components/ui/ContactPageContactForm.svelte";
     import { page } from "$app/state";
 

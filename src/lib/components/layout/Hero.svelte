@@ -9,6 +9,7 @@
 		subText,
 		text = 'Here is a description of what this page is about',
 		background = logo,
+		posTop,
 		onclick,
         children
 	}: {
@@ -17,12 +18,13 @@
 		subText?: string;
 		text?: string;
 		background?: string;
+		posTop?: number;
 		onclick?: (event: MouseEvent) => void;
         children?: Snippet;
 	} = $props();
 </script>
 
-<section id="hero" style:--hero-image={background ? `url(${background})` : undefined}>
+<section id="hero" style:--hero-image={background ? `url(${background})` : undefined} style:--pos-top={posTop ? `${posTop}%` : undefined}>
 	<div class="container hero">
 		{#if titleContent}
 			{@render titleContent()}
@@ -44,7 +46,7 @@
 	#hero {
 		padding-block: var(--space-3xl);
 		background: linear-gradient(hsl(0 0 0 / 55%), var(--clr-dark)), var(--hero-image);
-		background-position: center 15%;
+		background-position: center var(--pos-top, 15%);
 		background-size: cover;
 		background-repeat: no-repeat;
 	}

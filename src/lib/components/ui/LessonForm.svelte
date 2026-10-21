@@ -2,6 +2,11 @@
 	import Button from './Button.svelte';
 	import Turnstile from './Turnstile.svelte';
 
+	const lessonTimes = [
+		{ title: 'Weekly 30-minute', value: '30min' },
+		{ title: 'Weekly 60-minute', value: '60min' }
+	];
+
 	let stuName = $state('');
 	let age = $state('');
 	let parentName = $state('');
@@ -71,7 +76,7 @@
 		turnstileToken = '';
 	}
 
-	let { noHeader = false }: { noHeader?: boolean } = $props();
+	let { noHeader = false, selectedTime }: { noHeader?: boolean, selectedTime?: string } = $props();
 </script>
 
 <div class="contact-wrapper">
@@ -81,7 +86,7 @@
 	{/if}
 
 	<form onsubmit={handleSubmit}>
-		<input type="hidden" name="formType" value="lesson">
+		<input type="hidden" name="formType" value="lesson" />
 		<!-- Honeypot -->
 		<div class="honeypot" aria-hidden="true">
 			<label for="website">Website</label>
@@ -98,6 +103,16 @@
 			<label for="age">Age</label>
 
 			<input id="age" name="age" type="text" bind:value={age} required />
+		</div>
+
+		<div>
+			<label for="length">Lesson Length</label>
+			<select name="length" id="length" bind:value={selectedTime}>
+				<option value="" disabled>Select lesson length</option>
+				{#each lessonTimes as time (time) }
+					<option value={time.value}>{time.title}</option>
+				{/each}
+			</select>
 		</div>
 
 		<div>
@@ -135,14 +150,7 @@
 		<div>
 			<label for="phone">Phone</label>
 
-			<input
-				id="phone"
-				name="phone"
-				type="tel"
-				bind:value={phone}
-				autocomplete="tel"
-				required
-			/>
+			<input id="phone" name="phone" type="tel" bind:value={phone} autocomplete="tel" required />
 		</div>
 
 		<div>

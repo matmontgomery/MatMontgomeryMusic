@@ -1,8 +1,14 @@
 <script>
 	import Hero from "$lib/components/layout/Hero.svelte";
     import matTrumpet from "$lib/assets/mat_trumpet_2.avif"
-	import ContactForm from "$lib/components/ui/ContactForm.svelte";
+	import ContactPageContactForm from "$lib/components/ui/ContactPageContactForm.svelte";
+    import { page } from "$app/state";
 
+    let selectedSubject = $state('');
+
+    $effect(() => {
+        selectedSubject = page.url.searchParams.get('selectedSubject') ?? '';
+    });
 </script>
 
 
@@ -13,7 +19,7 @@
 </Hero>
 
 <section id="contact">
-    <ContactForm noHeader />
+    <ContactPageContactForm {selectedSubject} noHeader />
 </section>
 
 <style>

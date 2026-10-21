@@ -1,10 +1,12 @@
 <script lang="ts">
 	import Hero from '$lib/components/layout/Hero.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
-	import matTrumpet from '$lib/assets/mat_trumpet_1.avif';
-	import matTrumpet2 from '$lib/assets/mat_trumpet_2.avif';
+	import matTrumpet from '$lib/assets/mat_teaching_1.avif';
+	import matTrumpet2 from '$lib/assets/mat_teaching_2.avif';
 	import LessonForm from '$lib/components/ui/LessonForm.svelte';
 	import { goto } from '$app/navigation';
+
+	let selectedTime = $state('');
 </script>
 
 <Hero
@@ -13,7 +15,7 @@
 		He is dedicated to cultivation musicianship through disciplined technique, 
 		incremental progress, and ongoing motivation.
 		Mat currently teaches lessons in the greater Olympia area."
-	background={matTrumpet}
+	background={matTrumpet2}
 >
 	{#snippet titleContent()}
 		<h1 class="title">Trumpet <span class="accent">Studio</span></h1>
@@ -38,7 +40,7 @@
 			</p>
 		</div>
 		<div class="bento-box">
-			<div class="technical stack small" style:--background={`url(${matTrumpet2})`}>
+			<div class="technical stack small" style:--background={`url(${matTrumpet})`}>
 				<h3 class="color-primary">Technical Foundation</h3>
 				<p>
 					Technical ability allows the student to play the music that they want. Breath control,
@@ -99,6 +101,7 @@
 					text="Book Now"
 					secondary
 					onclick={() => {
+						selectedTime = '60min';
 						goto('#book');
 					}}
 				/>
@@ -118,6 +121,7 @@
 				<Button
 					text="Book Now"
 					onclick={() => {
+						selectedTime = '30min';
 						goto('#book');
 					}}
 				/>
@@ -137,7 +141,7 @@
 					text="Inquire"
 					outline
 					onclick={() => {
-						goto('/contact');
+						goto('/contact?selectedSubject=clinic#contact');
 					}}
 				/>
 			</div>
@@ -153,7 +157,7 @@
 				Lessons are currently available. Contact Mat to book your lessons today. Space is limited.
 			</p>
 		</div>
-		<LessonForm noHeader />
+		<LessonForm {selectedTime} noHeader />
 	</div>
 </section>
 
@@ -176,7 +180,7 @@
 		width: min(100%, 800px);
 		margin-inline: auto;
 		display: grid;
-		gap: 1rem;
+		gap: 0.5rem;
 		grid-template-areas:
 			'technical'
 			'honors'
@@ -217,19 +221,29 @@
 
 	.technical {
 		grid-area: technical;
-		background: linear-gradient(90deg, hsl(0 0 0 / 0.5), var(--clr-dark) 80%), var(--background);
-		background-position: center 15%;
+		background: linear-gradient(180deg, hsl(0 0 0 / 0.5) 50%, var(--clr-dark) 100%), var(--background);
+		background-position: center 30%;
 		background-size: cover;
 		background-repeat: no-repeat;
-		padding-top: var(--space-2xl) !important;
+		min-height: 240px;
 	}
 
 	.technical > h3 {
 		font-style: italic;
+		margin-top: auto;
+		font-size: var(--size-1);
+	}
+
+	.technical > p {
+		font-size: var(--size-0);
 	}
 
 	.honors {
 		grid-area: honors;
+	}
+
+	.honors h3 {
+		font-size: var(--size-1);
 	}
 
 	.honors li {
@@ -248,6 +262,11 @@
 
 	.certified h3 {
 		color: var(--clr-secondary);
+		font-size: var(--size-1);
+	}
+
+	.certified p {
+		font-size: var(--size-0);
 	}
 
 	.inspiration {

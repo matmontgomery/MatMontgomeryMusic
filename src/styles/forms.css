@@ -32,6 +32,7 @@ select {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
 	outline-color: var(--clr-primary, inherit);
 }

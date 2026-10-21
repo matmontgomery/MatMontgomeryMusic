@@ -1,0 +1,200 @@
+<script lang="ts">
+	import Button from './Button.svelte';
+	import Turnstile from './Turnstile.svelte';
+
+	let name = $state('');
+	let email = $state('');
+	let message = $state('');
+
+	let status = $state<'idle' | 'sending' | 'success' | 'error'>('idle');
+	let errorMessage = $state('');
+
+	let turnstileToken = $state('');
+
+	const subjects = [
+		{ title: 'General', value: 'general' },
+		{ title: 'Performance', value: 'performance' },
+		{ title: 'Lessons', value: 'lessons' },
+		{ title: 'Commission', value: 'commission' },
+		{ title: 'Clinic', value: 'clinic' },
+	];
+
+	async function handleSubmit(event: SubmitEvent) {
+		event.preventDefault();
+
+		status = 'sending';
+		errorMessage = '';
+
+		const form = event.currentTarget as HTMLFormElement;
+		const formData = new FormData(form);
+
+		// Add the Turnstile token explicitly.
+		if (turnstileToken) {
+			formData.set('cf-turnstile-response', turnstileToken);
+		}
+
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				body: formData
+			});
+
+			const result = await response.json();
+
+			if (!response.ok || !result.success) {
+				throw new Error(result.error ?? 'Something went wrong. Please try again.');
+			}
+
+			status = 'success';
+
+			name = '';
+			email = '';
+			selectedSubject = '';
+			message = '';
+			turnstileToken = '';
+		} catch (error) {
+			status = 'error';
+
+			errorMessage =
+				error instanceof Error ? error.message : 'Something went wrong. Please try again.';
+		}
+	}
+
+	function handleTurnstileToken(token: string) {
+		turnstileToken = token;
+	}
+
+	function handleTurnstileExpired() {
+		turnstileToken = '';
+	}
+
+	function handleTurnstileError() {
+		turnstileToken = '';
+	}
+
+	let { noHeader = false, selectedSubject }: { noHeader?: boolean, selectedSubject?: string } = $props();
+</script>
+
+<div class="contact-wrapper">
+	{#if !noHeader}
+		<h2>Contact</h2>
+		<p>We look forward to hearing from you. We aim to reply within 1-2 business days.</p>
+	{/if}
+
+	<form onsubmit={handleSubmit}>
+		<input type="hidden" name="formType" value="contactPage">
+		<!-- Honeypot -->
+		<div class="honeypot" aria-hidden="true">
+			<label for="website">Website</label>
+			<input id="website" name="website" type="text" tabindex="-1" autocomplete="new-password" />
+		</div>
+
+		<div>
+			<label for="name">Name</label>
+
+			<input id="name" name="name" type="text" bind:value={name} autocomplete="name" required />
+		</div>
+
+		<div>
+			<label for="email">Email</label>
+
+			<input
+				id="email"
+				name="email"
+				type="email"
+				bind:value={email}
+				autocomplete="email"
+				required
+			/>
+		</div>
+
+		<div>
+			<label for="subject">Subject</label>
+			<select name="subject" id="subject" bind:value={selectedSubject}>
+				<option value="" disabled>Select a subject</option>
+				{#each subjects as subject (subject)}
+					<option value={subject.value}>{subject.title}</option>
+				{/each}
+			</select>
+		</div>
+
+		<div>
+			<label for="message">Message</label>
+
+			<textarea id="message" name="message" bind:value={message} rows="6" required></textarea>
+		</div>
+
+		<Turnstile
+			onToken={handleTurnstileToken}
+			onExpired={handleTurnstileExpired}
+			onError={handleTurnstileError}
+		/>
+
+		{#if status === 'success'}
+			<p class="success" role="status">Thanks for contacting us! Your message has been sent.</p>
+		{/if}
+
+		{#if status === 'error'}
+			<p class="error" role="alert">
+				{errorMessage}
+			</p>
+		{/if}
+
+		<div class="send">
+			<Button
+				type="submit"
+				disabled={status === 'sending'}
+				text={status === 'sending' ? 'Sending...' : 'Send'}
+				--size="var(--size--1)"
+			/>
+		</div>
+	</form>
+</div>
+
+<style>
+	h2 {
+		margin: 0;
+	}
+
+	p {
+		font-size: var(--size-0);
+	}
+
+	form {
+		width: min(100%, 400px);
+		margin-inline: auto;
+		margin-block-start: var(--space-l);
+		display: grid;
+		gap: 1.25rem;
+	}
+
+	form > div:not(.honeypot) {
+		display: grid;
+		gap: 0.5rem;
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	.success {
+		margin: 0;
+	}
+
+	.error {
+		margin: 0;
+	}
+
+	.send {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.honeypot {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+</style>

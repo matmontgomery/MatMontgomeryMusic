@@ -1,0 +1,22 @@
+export const trumpet1Range = {
+    72: "C",
+    73: "C#",
+    74: "D",
+    75: "D#",
+    76: "E",
+    77: "F",
+    78: "F#",
+    79: "G",
+    80: "G#",
+    82: "A",
+    83: "A#",
+    84: "B",
+    85: "High C",
+    86: "High C#",
+    87: "High D",
+    88: "High D#",
+    89: "High E",
+    90: "High F",
+    91: "High F#",
+    92: "High G"
+}

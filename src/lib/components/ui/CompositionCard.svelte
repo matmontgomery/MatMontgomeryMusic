@@ -1,23 +1,24 @@
 <script>
 	import Button from './Button.svelte';
-	import matTrumpet from '$lib/assets/mat_trumpet_1.avif';
+
+	let { composition } = $props();
 </script>
 
 <div class="composition-card stack">
-	<img src={matTrumpet} alt="" />
+	<img src="/static/images/compositions/DPM16002_Cake Mix.jpg" alt={composition.title} />
 	<div class="style-box">
-		<p class="grade">Med-Advanced</p>
-		<p class="style">Modern Rock</p>
+		<p class="grade">{composition.difficulty}</p>
+		<p class="style">{composition.styles[0]}</p>
 	</div>
 	<div class="card-info stack small">
-		<h3 class="card-title">Ain't No Time</h3>
-		<h4 class="card-subtitle">Modern Rock</h4>
+		<h3 class="card-title">{composition.title}</h3>
+		<h4 class="card-subtitle">{composition.arranger === '' ? `By ${composition.composer}` : `Arr. by ${composition.arranger}`}</h4>
 		<p class="description">
-			Inspired by dubstep, this moder rock piece will get your band's juices flowing.
+			{composition.description}
 		</p>
 		<hr class="card-break" />
 		<div class="price-box">
-			<h4 class="price">$50</h4>
+			<h4 class="price">${composition.price}</h4>
             <p>|</p>
 			<a href="#">Buying Options</a>
 		</div>

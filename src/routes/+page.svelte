@@ -37,7 +37,7 @@
 	<div class="container stack">
 		<div class="switcher" style="--min-card-width: 250px">
 			<Card
-				title="The Performer"
+				title="Performer"
 				text="Professional trumpet player with dual performance degrees and worldwide touring experience with the Glenn Miller Orchestra."
 				src={matTrumpet2}
 				alt="Mat playing trumpet."
@@ -45,7 +45,7 @@
 				linkText="View Profile"
 			/>
 			<Card
-				title="The Educator"
+				title="Educator"
 				text="Over 20 years of experience offering personalized trumpet instruction, helping students reach their fullest potential."
 				src={matTeaching}
 				alt="Mat playing trumpet."
@@ -53,7 +53,7 @@
 				linkText="Explore Lessons"
 			/>
 			<Card
-				title="The Composer"
+				title="Composer"
 				text="Founder of Dapper Page Music, specializing in modern big band compositions played by school and professional bands globally."
 				src={matPiano}
 				alt="Mat playing trumpet."

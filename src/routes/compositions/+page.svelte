@@ -5,6 +5,7 @@
 	import CompositionCard from '$lib/components/ui/CompositionCard.svelte';
 	import CommissionForm from '$lib/components/ui/CommissionForm.svelte';
 	import { goto } from '$app/navigation';
+	import { compositions } from '$lib/data/compositions';
 </script>
 
 <Hero
@@ -31,11 +32,9 @@
 
 <section id="compositions">
 	<div class="container auto-grid">
-		<CompositionCard />
-		<CompositionCard />
-		<CompositionCard />
-		<CompositionCard />
-		<CompositionCard />
+		{#each compositions as composition (composition.publisherId)}
+			<CompositionCard {composition}/>
+		{/each}
 	</div>
 </section>
 

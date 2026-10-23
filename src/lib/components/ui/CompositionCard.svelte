@@ -5,14 +5,14 @@
 </script>
 
 <div class="composition-card stack">
-	<img src="/static/images/compositions/DPM16002_Cake Mix.jpg" alt={composition.title} />
+	<img src={composition.coverArt} alt={composition.title} />
 	<div class="style-box">
 		<p class="grade">{composition.difficulty}</p>
 		<p class="style">{composition.styles[0]}</p>
 	</div>
 	<div class="card-info stack small">
 		<h3 class="card-title">{composition.title}</h3>
-		<h4 class="card-subtitle">{composition.arranger === '' ? `By ${composition.composer}` : `Arr. by ${composition.arranger}`}</h4>
+		<h4 class="card-subtitle">{!composition.arranger ? `By ${composition.composer}` : `Arr. by ${composition.arranger}`}</h4>
 		<p class="description">
 			{composition.description}
 		</p>

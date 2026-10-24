@@ -17,10 +17,7 @@
 		if (!showBuyingOptions) return;
 
 		function handleOutsideClick(event: MouseEvent) {
-			if (
-				buyingOptionsElement &&
-				!buyingOptionsElement.contains(event.target as Node)
-			) {
+			if (buyingOptionsElement && !buyingOptionsElement.contains(event.target as Node)) {
 				showBuyingOptions = false;
 			}
 		}
@@ -78,6 +75,14 @@
 		}
 	});
 
+	function updateDuration() {
+		if (!audioElement) return;
+
+		if (Number.isFinite(audioElement.duration)) {
+			duration = audioElement.duration;
+		}
+	}
+
 	function seek(time: number) {
 		if (!audioElement || !Number.isFinite(time)) return;
 
@@ -112,122 +117,119 @@
 
 		<p class="description">{composition.description}</p>
 
-		<hr class="card-break" />
-
-		<div class="price-box">
-			<h4 class="price">${composition.price}</h4>
-			<p>|</p>
-			<div class="buying-options" bind:this={buyingOptionsElement}>
-				<button
-					class="buying-options-trigger"
-					type="button"
-					aria-expanded={showBuyingOptions}
-					onclick={toggleBuyingOptions}
-				>
-					Buying Options
-				</button>
-
-				{#if showBuyingOptions}
-					<div class="buying-options-menu">
-						{#if composition.dapperPageUrl}
-							<a
-								href={composition.dapperPageUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								onclick={() => (showBuyingOptions = false)}
-							>
-								Dapper Page
-								<span aria-hidden="true">↗</span>
-							</a>
-						{/if}
-
-						{#if composition.JWPepperUrl}
-							<a
-								href={composition.JWPepperUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								onclick={() => (showBuyingOptions = false)}
-							>
-								J.W. Pepper
-								<span aria-hidden="true">↗</span>
-							</a>
-						{/if}
-
-						{#if !composition.dapperPageUrl && !composition.JWPepperUrl}
-							<p class="no-options">No purchase links available.</p>
+		<div class="cta-wrapper">
+			<hr class="card-break" />
+			<div class="cta-container stack small">
+				<div class="price-box">
+					<h4 class="price">${composition.price}</h4>
+					<p>|</p>
+					<div class="buying-options" bind:this={buyingOptionsElement}>
+						<button
+							class="buying-options-trigger"
+							type="button"
+							aria-expanded={showBuyingOptions}
+							onclick={toggleBuyingOptions}
+						>
+							Buying Options
+						</button>
+						{#if showBuyingOptions}
+							<div class="buying-options-menu">
+								{#if composition.dapperPageUrl}
+									<a
+										href={composition.dapperPageUrl}
+										target="_blank"
+										rel="noopener noreferrer"
+										onclick={() => (showBuyingOptions = false)}
+									>
+										Dapper Page
+										<span aria-hidden="true">↗</span>
+									</a>
+								{/if}
+								{#if composition.JWPepperUrl}
+									<a
+										href={composition.JWPepperUrl}
+										target="_blank"
+										rel="noopener noreferrer"
+										onclick={() => (showBuyingOptions = false)}
+									>
+										J.W. Pepper
+										<span aria-hidden="true">↗</span>
+									</a>
+								{/if}
+								{#if !composition.dapperPageUrl && !composition.JWPepperUrl}
+									<p class="no-options">No purchase links available.</p>
+								{/if}
+							</div>
 						{/if}
 					</div>
+				</div>
+				<div class="flex-group">
+					<Button
+						text={isPlaying ? 'Pause' : 'Listen'}
+						secondary
+						style="--size:var(--size--1)"
+						onclick={togglePlayback}
+						disabled={!composition.recording}
+					/>
+					<Button
+						text="View Score"
+						outline
+						style="--size:var(--size--1)"
+						onclick={openScore}
+						disabled={!composition.score}
+					/>
+				</div>
+				{#if composition.recording}
+					<audio
+						bind:this={audioElement}
+						src={composition.recording}
+						preload="metadata"
+						onloadedmetadata={updateDuration}
+						ondurationchange={updateDuration}
+						onerror={() => {
+							console.error('Audio failed to load:', composition.recording, audioElement?.error);
+						}}
+						onplay={() => (isPlaying = true)}
+						onpause={() => (isPlaying = false)}
+						onended={() => {
+							isPlaying = false;
+							currentTime = 0;
+
+							if ($activeAudio === audioElement) {
+								activeAudio.set(null);
+							}
+						}}
+						ontimeupdate={() => {
+							currentTime = audioElement?.currentTime ?? 0;
+						}}
+					></audio>
+					<div
+						class="progress"
+						style={`--progress: ${duration > 0 ? (currentTime / duration) * 100 : 0}%`}
+					>
+						<div class="progress-track" aria-hidden="true">
+							<div class="progress-fill"></div>
+							<div class="progress-thumb"></div>
+						</div>
+						<input
+							class="progress-input"
+							type="range"
+							min="0"
+							max={duration || 0}
+							step="0.1"
+							value={Math.min(currentTime, duration || 0)}
+							oninput={(event) => seek(Number(event.currentTarget.value))}
+							disabled={!duration || !Number.isFinite(duration)}
+							aria-label={`Seek through ${composition.title}`}
+						/>
+					</div>
+					<p class="time-display">
+						{formatTime(currentTime)} /
+						{formatTime(audioElement?.duration ?? duration)}
+					</p>
 				{/if}
 			</div>
 		</div>
-
-		<div class="flex-group">
-			<Button
-				text={isPlaying ? 'Pause' : 'Listen'}
-				secondary
-				style="--size:var(--size--1)"
-				onclick={togglePlayback}
-				disabled={!composition.recording}
-			/>
-
-			<Button
-				text="View Score"
-				outline
-				style="--size:var(--size--1)"
-				onclick={openScore}
-				disabled={!composition.score}
-			/>
-		</div>
-
-		{#if composition.recording}
-			<audio
-				bind:this={audioElement}
-				src={composition.recording}
-				preload="metadata"
-				onplay={() => (isPlaying = true)}
-				onpause={() => (isPlaying = false)}
-				onended={() => {
-					isPlaying = false;
-					currentTime = 0;
-
-					if ($activeAudio === audioElement) {
-						activeAudio.set(null);
-					}
-				}}
-				onloadedmetadata={() => {
-					duration = audioElement?.duration ?? 0;
-				}}
-				ontimeupdate={() => {
-					currentTime = audioElement?.currentTime ?? 0;
-				}}
-			></audio>
-
-			<div
-				class="progress"
-				style={`--progress: ${duration > 0 ? (currentTime / duration) * 100 : 0}%`}
-			>
-				<div class="progress-track" aria-hidden="true">
-					<div class="progress-fill"></div>
-					<div class="progress-thumb"></div>
-				</div>
-
-				<input
-					class="progress-input"
-					type="range"
-					min="0"
-					max={duration || 0}
-					step="0.1"
-					value={Math.min(currentTime, duration || 0)}
-					oninput={(event) => seek(Number(event.currentTarget.value))}
-					disabled={!duration || !Number.isFinite(duration)}
-					aria-label={`Seek through ${composition.title}`}
-				/>
-			</div>
-
-			<p class="time-display">
-				{formatTime(currentTime)} / {formatTime(duration)}
-			</p>
-		{/if}
 	</div>
 </div>
 
@@ -237,6 +239,9 @@
 		border: 1px solid var(--surface-container-highest);
 		border-radius: var(--border-radius-sm);
 		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
 	}
 
 	img {
@@ -271,6 +276,10 @@
 
 	.card-info {
 		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex-grow: 1;
 	}
 
 	.card-title {
@@ -289,10 +298,14 @@
 		font-size: var(--size-0);
 	}
 
+	.cta-wrapper {
+		margin-top: auto;
+	}
+
 	.card-break {
 		width: 100%;
 		opacity: 0.1;
-		margin-block-start: auto;
+		margin-block-start: 1rem;
 	}
 
 	.price-box {

@@ -1,6 +1,6 @@
 <script>
 	import Hero from '$lib/components/layout/Hero.svelte';
-	import matTrumpet from '$lib/assets/mat_trumpet_1.avif';
+	import matPiano from '$lib/assets/mat_piano.avif';
 	import Button from '$lib/components/ui/Button.svelte';
 	import CompositionCard from '$lib/components/ui/CompositionCard.svelte';
 	import CommissionForm from '$lib/components/ui/CommissionForm.svelte';
@@ -10,7 +10,7 @@
 
 <Hero
 	text="Explore selected original compositions and arragements by Mat Montgomery, published through Dapper Page Music. Peruse sample scores, listen to full recordings, and find ways to buy. Initiate a conversation for a specially commissioned piece for your jazz band."
-	background={matTrumpet}
+	background={matPiano}
 >
 	{#snippet titleContent()}
 		<h1 class="title">Composition <span class="accent">Portfolio</span></h1>

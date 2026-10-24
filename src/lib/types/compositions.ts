@@ -23,6 +23,8 @@ export type FeaturedInstrument =
 	| 'drums'
 	| 'any';
 
+export type Difficulty = 'E' | 'ME' | 'M' | 'MA' | 'A';
+
 export interface Composition {
 	publisherId: string;
 	title: string;
@@ -30,7 +32,7 @@ export interface Composition {
 	arranger?: string;
 	commission?: string;
 	ensemble: string;
-	difficulty: string;
+	difficulty: Difficulty;
 	styles: MusicStyle[];
 	price: number;
 	description: string;
@@ -41,4 +43,6 @@ export interface Composition {
 	feature: FeaturedInstrument[];
 	writtenSolo: boolean;
 	editorsChoice: boolean;
+	dapperPageUrl: string;
+	JWPepperUrl: string;
 }

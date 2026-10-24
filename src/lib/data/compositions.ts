@@ -16,7 +16,9 @@ export const compositions: Composition[] = [
         trumpet1Range: 81,
         feature: ['alto sax', "trumpet", "trombone"],
         writtenSolo: false,
-        editorsChoice: false
+        editorsChoice: false,
+        dapperPageUrl: 'https://www.dapperpage.com/dapper-page-titles/precipitation-appreciation',
+        JWPepperUrl: 'https://www.jwpepper.com/precipitation-appreciation-10604701/p'
     },
     {
         publisherId: 'DPM16002',
@@ -33,7 +35,9 @@ export const compositions: Composition[] = [
         trumpet1Range: 72,
         feature: ['any'],
         writtenSolo: true,
-        editorsChoice: true
+        editorsChoice: true,
+        dapperPageUrl: 'https://www.dapperpage.com/dapper-page-titles/cake-mix',
+        JWPepperUrl: 'https://www.jwpepper.com/cake-mix-10757074/p'
     },
     {
         publisherId: 'DPM16003',
@@ -51,7 +55,9 @@ export const compositions: Composition[] = [
         trumpet1Range: 82,
         feature: ['bari sax'],
         writtenSolo: false,
-        editorsChoice: false
+        editorsChoice: false,
+        dapperPageUrl: 'https://www.dapperpage.com/dapper-page-titles/go-tell-it-on-the-mountain',
+        JWPepperUrl: 'https://www.jwpepper.com/go-tell-it-on-the-mountain-10757076/p'
     },
     {
         publisherId: 'DPM17005',
@@ -69,7 +75,9 @@ export const compositions: Composition[] = [
         trumpet1Range: 82,
         feature: ['tenor sax'],
         writtenSolo: false,
-        editorsChoice: true
+        editorsChoice: true,
+        dapperPageUrl: 'https://www.dapperpage.com/dapper-page-titles/always-simpatico',
+        JWPepperUrl: 'https://www.jwpepper.com/always-simpatico-11000509/p'
     },
     {
         publisherId: 'DPM18005',
@@ -86,7 +94,9 @@ export const compositions: Composition[] = [
         trumpet1Range: 79,
         feature: ['alto sax'],
         writtenSolo: false,
-        editorsChoice: true
+        editorsChoice: true,
+        dapperPageUrl: 'https://www.dapperpage.com/dapper-page-titles/trading-my-tears',
+        JWPepperUrl: 'https://www.jwpepper.com/trading-my-tears-11202970/p'
     },
     {
         publisherId: 'DPM19004',
@@ -103,7 +113,9 @@ export const compositions: Composition[] = [
         trumpet1Range: 80,
         feature: ["trumpet", "drums"],
         writtenSolo: false,
-        editorsChoice: false
+        editorsChoice: false,
+        dapperPageUrl: 'https://www.dapperpage.com/dapper-page-titles/break-glass',
+        JWPepperUrl: 'https://www.jwpepper.com/break-glass-11202971/p'
     },
     {
         publisherId: 'DPM20002',
@@ -121,7 +133,9 @@ export const compositions: Composition[] = [
         trumpet1Range: 77,
         feature: ['tenor sax'],
         writtenSolo: false,
-        editorsChoice: false
+        editorsChoice: false,
+        dapperPageUrl: 'https://www.dapperpage.com/dapper-page-titles/jingle-freakin-bells',
+        JWPepperUrl: 'https://www.jwpepper.com/jingle-freakin-bells-11202973/p'
     },
     {
         publisherId: 'DPM19003',
@@ -139,7 +153,9 @@ export const compositions: Composition[] = [
         trumpet1Range: 82,
         feature: ["piano", "guitar"],
         writtenSolo: false,
-        editorsChoice: false
+        editorsChoice: false,
+        dapperPageUrl: 'https://www.dapperpage.com/dapper-page-titles/chakanaka-chakanaka',
+        JWPepperUrl: 'https://www.jwpepper.com/chakanaka-chakanaka-11354736/p'
     },
     {
         publisherId: 'DPM22001',
@@ -157,7 +173,9 @@ export const compositions: Composition[] = [
         trumpet1Range: 79,
         feature: ["drums", "guitar"],
         writtenSolo: false,
-        editorsChoice: false
+        editorsChoice: false,
+        dapperPageUrl: 'https://www.dapperpage.com/dapper-page-titles/fremont-trolling',
+        JWPepperUrl: 'https://www.jwpepper.com/fremont-trolling-11399438/p'
     },
     {
         publisherId: 'DPM22002',
@@ -168,13 +186,15 @@ export const compositions: Composition[] = [
         styles: ['funk'],
         price: 60,
         description: "You will never guess how #1 No Pickles ends, but your audience is sure to love it. This blues-based funk is sure to be a crowd pleaser. The trombone soloist should have fun with their best Fred Wesley impression.",
-        coverArt: '/images/compositions/DPM22002-#1 No Pickles.jpg',
+        coverArt: '/images/compositions/DPM22002-1 No Pickles.jpg',
         score: '/scores/DPM22002-1 No Pickles - 00 - Full score.pdf',
         recording: '/audio/DPM22002-1 No Pickles.mp3',
         trumpet1Range: 79,
         feature: ["trombone"],
         writtenSolo: false,
-        editorsChoice: true
+        editorsChoice: true,
+        dapperPageUrl: 'https://www.dapperpage.com/dapper-page-titles/1-no-pickles',
+        JWPepperUrl: 'https://www.jwpepper.com/1-no-pickles-11399439/p'
     },
 ]
 

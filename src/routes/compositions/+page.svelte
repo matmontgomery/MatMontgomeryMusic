@@ -30,7 +30,11 @@
 	</div>
 </Hero>
 
-<section id="compositions">
+<section id="compositions" class="stack">
+<div class="container stack small">
+	<h2 class="color-primary">Selected Compositions</h2>
+	<p>These are a few pieces that Mat has written or arragned over the years. Many more of his composotions are available on DapperPage.com.</p>
+</div>
 	<div class="container auto-grid">
 		{#each compositions as composition (composition.publisherId)}
 			<CompositionCard {composition}/>

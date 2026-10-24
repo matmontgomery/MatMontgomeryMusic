@@ -54,13 +54,48 @@
 				artist="Mat Montgomery"
 			/>
 
-			<MediaCard
+			<!-- <MediaCard
 				type="audio"
 				src="/audio/DPM16002.mp3"
 				title="Cake Mix"
 				label="Studiio Recording"
 				background={matTrumpet1}
 				artist="Dapper Page Big Band"
+			/> -->
+			<MediaCard 
+				type="youtube"
+				src="https://youtu.be/-reJIWQWLh4?si=jm9fCpkqapPExR-9"
+				title="We Will Rock You"
+				label="Video"
+				artist="Mat Montgomery"
+			/>
+			<MediaCard 
+				type="youtube"
+				src="https://youtu.be/QIy5F8bOSCg?si=DPxpXwueghqo9Gsm"
+				title="Boogie Woogie Bugle Boy"
+				label="Video"
+				artist="Mat Montgomery"
+			/>
+			<MediaCard 
+				type="youtube"
+				src="https://youtu.be/TtkACB99Nm0?si=y9bc-1R8ELO7BwOB"
+				title="Here's That Rainy Day"
+				label="Video"
+				artist="Mat Montgomery"
+			/>
+			<MediaCard 
+				type="youtube"
+				src="https://youtu.be/oRVHWTTcWOs?si=j2BxpiHypV6GB_XR"
+				title="Telemann Canonic Sonata Duet no.1"
+				label="Video"
+				artist="Mat Montgomery"
+			/>
+			<MediaCard 
+				type="youtube"
+				src="https://youtu.be/WqM6tynWPfk?si=eKj0QB-bUBpKzV2K"
+				title="Black Hole Sun"
+				label="Video"
+				artist="Mat Montgomery"
 			/>
 		</div>
 	</div>

@@ -5,6 +5,8 @@ This is a base starter project in SvelteKit that can be used as a template for f
 * ~~close the navbar menu when clicking outside~~
 * Add more picture to composition, teaching
 * More performance recordings
+* Link to Dapper Page Music website
+* "Book A Lesson" button on nav bar should open popup with lesson form
 * ~~Add audio and score images~~
 * ~~Connect contact forms backend~~
 * ~~Modify lessons contact form for lessons~~

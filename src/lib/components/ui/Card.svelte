@@ -1,5 +1,4 @@
 <script lang="ts">
-	import logo from '$lib/assets/favicon.svg';
 
 	interface Props {
 		src?: string;
@@ -13,7 +12,7 @@
 	}
 
 	let {
-		src = logo,
+		src = '/android-chrome-192x192.png',
 		alt = 'logo',
 		title = 'Card Title',
 		text = 'Here are the important things you need to know.',

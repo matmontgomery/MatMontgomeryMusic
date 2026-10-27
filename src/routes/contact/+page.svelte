@@ -24,7 +24,7 @@
 
 <style>
     #contact {
-        margin-block-start: 0rem;
+        margin-block-start: -12rem;
     }
 
 </style>

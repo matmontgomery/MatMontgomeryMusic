@@ -81,8 +81,8 @@
 
 <div class="contact-wrapper">
 	{#if !noHeader}
-		<h2>Contact</h2>
-		<p>We look forward to hearing from you. We aim to reply within 1-2 business days.</p>
+		<h2>Book a Lesson</h2>
+		<p>Fill out the form to schedule a lesson with Mat. Mat teaches in Olympia, Lacey, Tumwater area. He aims to reply within 1-2 business days.</p>
 	{/if}
 
 	<form onsubmit={handleSubmit}>

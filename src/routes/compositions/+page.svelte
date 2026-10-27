@@ -1,6 +1,6 @@
 <script>
 	import Hero from '$lib/components/layout/Hero.svelte';
-	import matPiano from '$lib/assets/mat_piano.avif';
+	import matComp from '$lib/assets/mat_comp_1.avif'
 	import Button from '$lib/components/ui/Button.svelte';
 	import CompositionCard from '$lib/components/ui/CompositionCard.svelte';
 	import CommissionForm from '$lib/components/ui/CommissionForm.svelte';
@@ -9,31 +9,46 @@
 </script>
 
 <Hero
-	text="Explore selected original compositions and arragements by Mat Montgomery, published through Dapper Page Music. Peruse sample scores, listen to full recordings, and find ways to buy. Initiate a conversation for a specially commissioned piece for your jazz band."
-	background={matPiano}
+    background={matComp}
 >
-	{#snippet titleContent()}
-		<h1 class="title">Composition <span class="accent">Portfolio</span></h1>
-	{/snippet}
-	<div class="flex-group">
-		<Button
-			text="Commission a Piece"
-			style="--size: var(--size--1)"
-			onclick={() => goto('#commission')}
-		/>
-		<Button
-			text="Browse Selected Works"
-			outline
-			style="--size: var(--size--1)"
-			onclick={() => goto('#compositions')}
-		/>
-	</div>
+    {#snippet titleContent()}
+        <h1 class="title">
+            Composition <span class="accent">Portfolio</span>
+        </h1>
+    {/snippet}
+
+    {#snippet textContent()}
+        Explore selected original compositions and arrangements by Mat Montgomery,
+        published through
+        <a
+			class="color-primary"
+            href="https://www.dapperpage.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >Dapper Page Music</a>.
+        Peruse sample scores, listen to full recordings, and find ways to buy.
+        Initiate a conversation for a specially commissioned piece for your jazz band.
+    {/snippet}
+
+    <div class="flex-group">
+        <Button
+            text="Commission a Piece"
+            style="--size: var(--size--1)"
+            onclick={() => goto('#commission')}
+        />
+        <Button
+            text="Browse Selected Works"
+            outline
+            style="--size: var(--size--1)"
+            onclick={() => goto('#compositions')}
+        />
+    </div>
 </Hero>
 
 <section id="compositions" class="stack">
 <div class="container stack small">
 	<h2 class="color-primary">Selected Compositions</h2>
-	<p>These are a few pieces that Mat has written or arragned over the years. Many more of his composotions are available on DapperPage.com.</p>
+	<p>These are a few pieces that Mat has written or arragned over the years. Many more of his composotions are available on <a class="color-primary" href="https://www.dapperpage.com/">DapperPage.com</a>.</p>
 </div>
 	<div class="container auto-grid">
 		{#each compositions as composition (composition.publisherId)}

@@ -1,30 +1,35 @@
 <script lang="ts">
-	import logo from '$lib/assets/favicon.svg';
 	import Button from '../ui/Button.svelte';
 	import type { Snippet } from 'svelte';
 
 	let {
 		title = 'Hero Title',
 		titleContent,
+		textContent,
 		subText,
 		text = 'Here is a description of what this page is about',
-		background = logo,
+		background = '/android-chrome-192x192.png',
 		posTop,
 		onclick,
-        children
+		children
 	}: {
 		title?: string;
 		titleContent?: Snippet;
+		textContent?: Snippet;
 		subText?: string;
 		text?: string;
 		background?: string;
 		posTop?: number;
 		onclick?: (event: MouseEvent) => void;
-        children?: Snippet;
+		children?: Snippet;
 	} = $props();
 </script>
 
-<section id="hero" style:--hero-image={background ? `url(${background})` : undefined} style:--pos-top={posTop ? `${posTop}%` : undefined}>
+<section
+	id="hero"
+	style:--hero-image={background ? `url(${background})` : undefined}
+	style:--pos-top={posTop ? `${posTop}%` : undefined}
+>
 	<div class="container hero">
 		{#if titleContent}
 			{@render titleContent()}
@@ -33,12 +38,14 @@
 		{/if}
 		{#if subText}
 			<p class="hero-subtitle color-primary">{subText}</p>
+		{:else if textContent}
+			<p class="hero-text">{@render textContent()}</p>
 		{:else}
 			<p class="hero-text">{text}</p>
 		{/if}
-        {#if children}
-            <div class="children-container">{@render children()}</div>
-        {/if}
+		{#if children}
+			<div class="children-container">{@render children()}</div>
+		{/if}
 	</div>
 </section>
 

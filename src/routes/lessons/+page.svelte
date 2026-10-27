@@ -3,6 +3,7 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import matTrumpet from '$lib/assets/mat_teaching_1.avif';
 	import matTrumpet2 from '$lib/assets/mat_teaching_2.avif';
+	import trumpetEns from '$lib/assets/trumpet_ens.jpg'
 	import LessonForm from '$lib/components/ui/LessonForm.svelte';
 	import { goto } from '$app/navigation';
 
@@ -11,7 +12,8 @@
 
 <Hero
 	text="Mat has been teaching trumpet for over 20 years, 
-		holding a WA state teaching certificate with an endorsement in music education. 
+		holding a WA state teaching certificate with an endorsement in music education.
+		He currently teaches in the South Sound area, serving Olympia, Lacey, and Tumwater. 
 		He is dedicated to cultivation musicianship through disciplined technique, 
 		incremental progress, and ongoing motivation.
 		Mat currently teaches lessons in the greater Olympia area."
@@ -40,7 +42,7 @@
 			</p>
 		</div>
 		<div class="bento-box">
-			<div class="technical stack small" style:--background={`url(${matTrumpet})`}>
+			<div class="technical stack small" style:--background={`url(${trumpetEns})`}>
 				<h3 class="color-primary">Technical Foundation</h3>
 				<p>
 					Technical ability allows the student to play the music that they want. Breath control,
@@ -154,7 +156,7 @@
 		<div class="book-text">
 			<h2>Book A Lesson</h2>
 			<p>
-				Lessons are currently available. Contact Mat to book your lessons today. Space is limited.
+				Lessons are currently available in Olympia. Contact Mat to book your lessons today. Space is limited.
 			</p>
 		</div>
 		<LessonForm {selectedTime} noHeader />
@@ -221,8 +223,8 @@
 
 	.technical {
 		grid-area: technical;
-		background: linear-gradient(180deg, hsl(0 0 0 / 0.5) 50%, var(--clr-dark) 100%), var(--background);
-		background-position: center 30%;
+		background: linear-gradient(180deg, hsl(0 0 0 / 0.5) 30%, var(--clr-dark) 80%), var(--background);
+		background-position: center bottom;
 		background-size: cover;
 		background-repeat: no-repeat;
 		min-height: 240px;

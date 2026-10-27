@@ -6,7 +6,7 @@
 	import matTrumpet2 from '$lib/assets/mat_trumpet_2.avif';
 	import matTrumpet5 from '$lib/assets/mat_trumpet_5.avif';
 	import matTeaching from '$lib/assets/mat_teaching_2.avif';
-	import matPiano from '$lib/assets/mat_piano.avif';
+	import matComp from '$lib/assets/mat_comp_1.avif';
 	import Button from '$lib/components/ui/Button.svelte';
 
 	let showModal = $state(false);
@@ -55,7 +55,7 @@
 			<Card
 				title="Composer"
 				text="Founder of Dapper Page Music, specializing in modern big band compositions played by school and professional bands globally."
-				src={matPiano}
+				src={matComp}
 				alt="Mat playing trumpet."
 				href="compositions"
 				linkText="Browse Music"

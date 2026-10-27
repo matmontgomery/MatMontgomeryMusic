@@ -8,6 +8,8 @@
 	let menuOpen = $state(false);
 	let navElement: HTMLElement;
 
+	let { onclick } = $props();
+
 	function closeMenu() {
 		menuOpen = false;
 	}
@@ -51,7 +53,8 @@
 		{#each pages as page (page.href)}
 			<li><a href={resolve(page.href)} onclick={closeMenu}> {page.name} </a></li>
 		{/each}
-		<li><Button text="Book Lesson" --size="var(--size--1)" onclick={() => goto('/lessons#book')} /></li>
+		<li><Button text="Book Lesson" --size="var(--size--1)" {onclick} /></li>
+		<!-- <li><Button text="Book Lesson" --size="var(--size--1)" onclick={() => goto('/lessons#book')} /></li> -->
 	</ul>
 </nav>
 

@@ -62,7 +62,7 @@
 				background={matTrumpet1}
 				artist="Dapper Page Big Band"
 			/> -->
-			<MediaCard 
+			<!-- <MediaCard 
 				type="youtube"
 				src="https://youtu.be/-reJIWQWLh4?si=jm9fCpkqapPExR-9"
 				title="We Will Rock You"
@@ -75,7 +75,7 @@
 				title="Boogie Woogie Bugle Boy"
 				label="Video"
 				artist="Mat Montgomery"
-			/>
+			/> -->
 			<MediaCard 
 				type="youtube"
 				src="https://youtu.be/TtkACB99Nm0?si=y9bc-1R8ELO7BwOB"

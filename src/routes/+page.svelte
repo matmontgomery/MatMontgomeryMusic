@@ -8,15 +8,40 @@
 	import matTeaching from '$lib/assets/mat_teaching_2.avif';
 	import matComp from '$lib/assets/mat_comp_1.avif';
 	import Button from '$lib/components/ui/Button.svelte';
+	import { link } from 'fs';
 
 	let showModal = $state(false);
 </script>
+
+<svelte:head>
+	<title>Mat Montgomery | Trumpet Teacher, Performer & Composer</title>
+	<link rel="canonical" href="https://matmontgomerymusic.com/" />
+
+	<meta
+		name="description"
+		content="Meet Mat Montgomery: trumpet teacher serving Olympia, Lacey, and Tumwater, professional performer, and jazz composer creating original music and arrangements."
+	/>
+
+	<meta
+		property="og:title"
+		content="Mat Montgomery | Trumpet Teacher, Performer & Composer"
+	/>
+	<meta
+		property="og:description"
+		content="Explore trumpet lessons in the Olympia area, performance recordings, original jazz compositions, and custom music commissions."
+	/>
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://matmontgomerymusic.com/" />
+	<meta
+		property="og:image"
+		content="https://matmontgomerymusic.com/mat_trumpet_2.avif"
+	/>
+</svelte:head>
 
 <Hero
 	title="Trumpet Artistry & Pedagogy"
 	text="Performer. Teacher. Composer."
 	background={matTrumpet5}
-	
 >
 	{#snippet titleContent()}
 		<h1 class="title">
@@ -63,5 +88,3 @@
 		</div>
 	</div>
 </section>
-
-

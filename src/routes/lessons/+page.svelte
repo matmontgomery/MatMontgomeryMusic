@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Hero from '$lib/components/layout/Hero.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
-	import matTrumpet from '$lib/assets/mat_teaching_1.avif';
 	import matTrumpet2 from '$lib/assets/mat_teaching_2.avif';
 	import trumpetEns from '$lib/assets/trumpet_ens.jpg'
 	import LessonForm from '$lib/components/ui/LessonForm.svelte';
@@ -9,6 +8,38 @@
 
 	let selectedTime = $state('');
 </script>
+
+<svelte:head>
+	<title>Private Trumpet Lessons in Olympia, WA | Mat Montgomery</title>
+
+	<link
+		rel="canonical"
+		href="https://matmontgomerymusic.com/lessons"
+	/>
+
+	<meta
+		name="description"
+		content="Private trumpet lessons with Mat Montgomery serving Olympia, Lacey, and Tumwater, WA. Explore lesson packages and find the right fit for your trumpet student."
+	/>
+
+	<meta
+		property="og:title"
+		content="Private Trumpet Lessons | Mat Montgomery"
+	/>
+	<meta
+		property="og:description"
+		content="Help your trumpet student grow with private lessons from Mat Montgomery in the Olympia, Lacey, and Tumwater area. Explore lesson packages and sign up."
+	/>
+	<meta property="og:type" content="website" />
+	<meta
+		property="og:url"
+		content="https://matmontgomerymusic.com/lessons"
+	/>
+	<meta
+		property="og:image"
+		content="https://matmontgomerymusic.com/mat_teaching.JPG"
+	/>
+</svelte:head>
 
 <Hero
 	text="Mat has been teaching trumpet for over 20 years, 
@@ -223,7 +254,7 @@
 
 	.technical {
 		grid-area: technical;
-		background: linear-gradient(180deg, hsl(0 0 0 / 0.5) 30%, var(--clr-dark) 80%), var(--background);
+		background: linear-gradient(180deg, hsl(0 0 0 / 0.5) 30%, var(--clr-dark) 70%), var(--background);
 		background-position: center bottom;
 		background-size: cover;
 		background-repeat: no-repeat;

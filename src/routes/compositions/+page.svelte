@@ -8,6 +8,38 @@
 	import { compositions } from '$lib/data/compositions';
 </script>
 
+<svelte:head>
+	<title>Jazz Band Compositions & Arrangements | Mat Montgomery</title>
+
+	<link
+		rel="canonical"
+		href="https://matmontgomerymusic.com/compositions"
+	/>
+
+	<meta
+		name="description"
+		content="Explore original jazz compositions and arrangements by Mat Montgomery. Listen to recordings, preview scores, find published works, and commission custom music for your ensemble."
+	/>
+
+	<meta
+		property="og:title"
+		content="Jazz Compositions & Custom Arrangements | Mat Montgomery"
+	/>
+	<meta
+		property="og:description"
+		content="Discover original jazz music by Mat Montgomery, listen to recordings, preview scores, explore published works, and request a custom composition or arrangement for your ensemble."
+	/>
+	<meta property="og:type" content="website" />
+	<meta
+		property="og:url"
+		content="https://matmontgomerymusic.com/compositions"
+	/>
+	<meta
+		property="og:image"
+		content="https://matmontgomerymusic.com/mat_comp.JPG"
+	/>
+</svelte:head>
+
 <Hero
     background={matComp}
 >

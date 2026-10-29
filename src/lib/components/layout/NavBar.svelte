@@ -1,10 +1,9 @@
 <script lang="ts">
 	import Button from '../ui/Button.svelte';
 	import { resolve } from '$app/paths';
-    import { pages } from '$lib/data/navigation';
-	import { goto } from '$app/navigation';
+	import { pages } from '$lib/data/navigation';
 	import { onMount } from 'svelte';
-	
+
 	let menuOpen = $state(false);
 	let navElement: HTMLElement;
 
@@ -16,11 +15,7 @@
 
 	onMount(() => {
 		function handleClickOutside(event: MouseEvent) {
-			if (
-				menuOpen &&
-				navElement &&
-				!navElement.contains(event.target as Node)
-			) {
+			if (menuOpen && navElement && !navElement.contains(event.target as Node)) {
 				menuOpen = false;
 			}
 		}
@@ -90,9 +85,9 @@
 	.nav-links a {
 		text-decoration: none;
 		font-size: var(--size--1);
-	} 
-    
-    /* Hamburger button */
+	}
+
+	/* Hamburger button */
 	.menu-toggle {
 		display: none;
 		width: 2.5rem;
@@ -100,7 +95,7 @@
 		padding: 0.5rem;
 		border: 0;
 		background: transparent;
-        opacity: 0.85;
+		opacity: 0.85;
 		cursor: pointer;
 		flex-direction: column;
 		justify-content: center;
@@ -117,9 +112,9 @@
 		transition:
 			transform 200ms ease,
 			opacity 200ms ease;
-	} 
-    
-    /* Hamburger → X */
+	}
+
+	/* Hamburger → X */
 	.menu-toggle[aria-expanded='true'] span:nth-child(1) {
 		transform: translateY(0.425rem) rotate(45deg);
 	}
@@ -128,9 +123,9 @@
 	}
 	.menu-toggle[aria-expanded='true'] span:nth-child(3) {
 		transform: translateY(-0.425rem) rotate(-45deg);
-	} 
-    
-    /* Mobile */
+	}
+
+	/* Mobile */
 	@media (max-width: 1000px) {
 		nav {
 			flex-wrap: wrap;

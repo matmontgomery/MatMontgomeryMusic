@@ -19,7 +19,7 @@ body {
 	font-style: normal;
 	font-size: var(--size-1);
 	line-height: 1;
-    text-box-trim: trim-both;
+	text-box-trim: trim-both;
 	display: inline-block;
 	white-space: nowrap;
 	direction: ltr;

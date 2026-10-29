@@ -1,90 +1,102 @@
 <script>
 	import Hero from '$lib/components/layout/Hero.svelte';
-	import matComp from '$lib/assets/mat_comp_1.avif'
+	import matComp from '$lib/assets/mat_comp_1.avif';
 	import Button from '$lib/components/ui/Button.svelte';
 	import CompositionCard from '$lib/components/ui/CompositionCard.svelte';
 	import CommissionForm from '$lib/components/ui/CommissionForm.svelte';
 	import { goto } from '$app/navigation';
 	import { compositions } from '$lib/data/compositions';
+
+	const structuredData = {
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'Custom Jazz Compositions and Arrangements',
+		serviceType: 'Music composition and arrangement commissions',
+		description:
+			'Commission original jazz compositions and custom arrangements by Mat Montgomery for your ensemble.',
+		url: 'https://matmontgomerymusic.com/compositions',
+		provider: {
+			'@type': 'Person',
+			name: 'Mat Montgomery',
+			url: 'https://matmontgomerymusic.com/'
+		},
+		areaServed: {
+			'@type': 'Country',
+			name: 'United States'
+		}
+	};
 </script>
 
 <svelte:head>
+	<script type="application/ld+json">
+		{@html JSON.stringify(structuredData)}
+	</script>
+
 	<title>Jazz Band Compositions & Arrangements | Mat Montgomery</title>
 
-	<link
-		rel="canonical"
-		href="https://matmontgomerymusic.com/compositions"
-	/>
+	<link rel="canonical" href="https://matmontgomerymusic.com/compositions" />
 
 	<meta
 		name="description"
 		content="Explore original jazz compositions and arrangements by Mat Montgomery. Listen to recordings, preview scores, find published works, and commission custom music for your ensemble."
 	/>
 
-	<meta
-		property="og:title"
-		content="Jazz Compositions & Custom Arrangements | Mat Montgomery"
-	/>
+	<meta property="og:title" content="Jazz Compositions & Custom Arrangements | Mat Montgomery" />
 	<meta
 		property="og:description"
 		content="Discover original jazz music by Mat Montgomery, listen to recordings, preview scores, explore published works, and request a custom composition or arrangement for your ensemble."
 	/>
 	<meta property="og:type" content="website" />
-	<meta
-		property="og:url"
-		content="https://matmontgomerymusic.com/compositions"
-	/>
-	<meta
-		property="og:image"
-		content="https://matmontgomerymusic.com/mat_comp.JPG"
-	/>
+	<meta property="og:url" content="https://matmontgomerymusic.com/compositions" />
+	<meta property="og:image" content="https://matmontgomerymusic.com/mat_comp.JPG" />
 </svelte:head>
 
-<Hero
-    background={matComp}
->
-    {#snippet titleContent()}
-        <h1 class="title">
-            Composition <span class="accent">Portfolio</span>
-        </h1>
-    {/snippet}
+<Hero background={matComp}>
+	{#snippet titleContent()}
+		<h1 class="title">
+			Composition <span class="accent">Portfolio</span>
+		</h1>
+	{/snippet}
 
-    {#snippet textContent()}
-        Explore selected original compositions and arrangements by Mat Montgomery,
-        published through
-        <a
+	{#snippet textContent()}
+		Explore selected original compositions and arrangements by Mat Montgomery, published through
+		<a
 			class="color-primary"
-            href="https://www.dapperpage.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-        >Dapper Page Music</a>.
-        Peruse sample scores, listen to full recordings, and find ways to buy.
-        Initiate a conversation for a specially commissioned piece for your jazz band.
-    {/snippet}
+			href="https://www.dapperpage.com/"
+			target="_blank"
+			rel="noopener noreferrer">Dapper Page Music</a
+		>. Peruse sample scores, listen to full recordings, and find ways to buy. Initiate a
+		conversation for a specially commissioned piece for your jazz band.
+	{/snippet}
 
-    <div class="flex-group">
-        <Button
-            text="Commission a Piece"
-            style="--size: var(--size--1)"
-            onclick={() => goto('#commission')}
-        />
-        <Button
-            text="Browse Selected Works"
-            outline
-            style="--size: var(--size--1)"
-            onclick={() => goto('#compositions')}
-        />
-    </div>
+	<div class="flex-group">
+		<Button
+			text="Commission a Piece"
+			style="--size: var(--size--1)"
+			onclick={() => goto('#commission')}
+		/>
+		<Button
+			text="Browse Selected Works"
+			outline
+			style="--size: var(--size--1)"
+			onclick={() => goto('#compositions')}
+		/>
+	</div>
 </Hero>
 
 <section id="compositions" class="stack">
-<div class="container stack small">
-	<h2 class="color-primary">Selected Compositions</h2>
-	<p>These are a few pieces that Mat has written or arragned over the years. Many more of his composotions are available on <a class="color-primary" href="https://www.dapperpage.com/">DapperPage.com</a>.</p>
-</div>
+	<div class="container stack small">
+		<h2 class="color-primary">Selected Compositions</h2>
+		<p>
+			These are a few pieces that Mat has written or arragned over the years. Many more of his
+			composotions are available on <a class="color-primary" href="https://www.dapperpage.com/"
+				>DapperPage.com</a
+			>.
+		</p>
+	</div>
 	<div class="container auto-grid">
 		{#each compositions as composition (composition.publisherId)}
-			<CompositionCard {composition}/>
+			<CompositionCard {composition} />
 		{/each}
 	</div>
 </section>
@@ -164,14 +176,12 @@
 	.cert {
 		background-color: var(--surface-container);
 		display: flex;
-        align-items: center;
-        gap: 0.5em;
+		align-items: center;
+		gap: 0.5em;
 		padding: 1em;
 		border: 1px solid var(--outline-variant);
 		border-radius: var(--border-radius-sm);
 	}
-
-
 
 	.cert p {
 		font-size: var(--size--1);

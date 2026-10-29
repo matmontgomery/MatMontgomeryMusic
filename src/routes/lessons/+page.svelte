@@ -2,43 +2,70 @@
 	import Hero from '$lib/components/layout/Hero.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import matTrumpet2 from '$lib/assets/mat_teaching_2.avif';
-	import trumpetEns from '$lib/assets/trumpet_ens.jpg'
+	import trumpetEns from '$lib/assets/trumpet_ens.jpg';
 	import LessonForm from '$lib/components/ui/LessonForm.svelte';
 	import { goto } from '$app/navigation';
 
 	let selectedTime = $state('');
+
+	const washington = {
+		'@type': 'State',
+		name: 'Washington'
+	};
+
+	const structuredData = {
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'Private Trumpet Lessons',
+		description: 'Private trumpet lessons with Mat Montgomery.',
+		url: 'https://matmontgomerymusic.com/lessons',
+		areaServed: [
+			{
+				'@type': 'City',
+				name: 'Olympia',
+				containedInPlace: washington
+			},
+			{
+				'@type': 'City',
+				name: 'Lacey',
+				containedInPlace: washington
+			},
+			{
+				'@type': 'City',
+				name: 'Tumwater',
+				containedInPlace: washington
+			}
+		],
+		provider: {
+			'@type': 'Person',
+			name: 'Mat Montgomery',
+			url: 'https://matmontgomerymusic.com/'
+		}
+	};
 </script>
 
 <svelte:head>
+	<script type="application/ld+json">
+		{@html JSON.stringify(structuredData)}
+	</script>
+
 	<title>Private Trumpet Lessons in Olympia, WA | Mat Montgomery</title>
 
-	<link
-		rel="canonical"
-		href="https://matmontgomerymusic.com/lessons"
-	/>
+	<link rel="canonical" href="https://matmontgomerymusic.com/lessons" />
 
 	<meta
 		name="description"
 		content="Private trumpet lessons with Mat Montgomery serving Olympia, Lacey, and Tumwater, WA. Explore lesson packages and find the right fit for your trumpet student."
 	/>
 
-	<meta
-		property="og:title"
-		content="Private Trumpet Lessons | Mat Montgomery"
-	/>
+	<meta property="og:title" content="Private Trumpet Lessons | Mat Montgomery" />
 	<meta
 		property="og:description"
 		content="Help your trumpet student grow with private lessons from Mat Montgomery in the Olympia, Lacey, and Tumwater area. Explore lesson packages and sign up."
 	/>
 	<meta property="og:type" content="website" />
-	<meta
-		property="og:url"
-		content="https://matmontgomerymusic.com/lessons"
-	/>
-	<meta
-		property="og:image"
-		content="https://matmontgomerymusic.com/mat_teaching.JPG"
-	/>
+	<meta property="og:url" content="https://matmontgomerymusic.com/lessons" />
+	<meta property="og:image" content="https://matmontgomerymusic.com/mat_teaching.JPG" />
 </svelte:head>
 
 <Hero
@@ -187,7 +214,8 @@
 		<div class="book-text">
 			<h2>Book A Lesson</h2>
 			<p>
-				Lessons are currently available in Olympia. Contact Mat to book your lessons today. Space is limited.
+				Lessons are currently available in Olympia. Contact Mat to book your lessons today. Space is
+				limited.
 			</p>
 		</div>
 		<LessonForm {selectedTime} noHeader />
@@ -254,7 +282,8 @@
 
 	.technical {
 		grid-area: technical;
-		background: linear-gradient(180deg, hsl(0 0 0 / 0.5) 30%, var(--clr-dark) 70%), var(--background);
+		background:
+			linear-gradient(180deg, hsl(0 0 0 / 0.5) 30%, var(--clr-dark) 70%), var(--background);
 		background-position: center bottom;
 		background-size: cover;
 		background-repeat: no-repeat;

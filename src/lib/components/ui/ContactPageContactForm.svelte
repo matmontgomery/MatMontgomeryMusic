@@ -16,7 +16,7 @@
 		{ title: 'Performance', value: 'performance' },
 		{ title: 'Lessons', value: 'lessons' },
 		{ title: 'Commission', value: 'commission' },
-		{ title: 'Clinic', value: 'clinic' },
+		{ title: 'Clinic', value: 'clinic' }
 	];
 
 	async function handleSubmit(event: SubmitEvent) {
@@ -72,7 +72,8 @@
 		turnstileToken = '';
 	}
 
-	let { noHeader = false, selectedSubject }: { noHeader?: boolean, selectedSubject?: string } = $props();
+	let { noHeader = false, selectedSubject }: { noHeader?: boolean; selectedSubject?: string } =
+		$props();
 </script>
 
 <div class="contact-wrapper">
@@ -82,7 +83,7 @@
 	{/if}
 
 	<form onsubmit={handleSubmit}>
-		<input type="hidden" name="formType" value="contactPage">
+		<input type="hidden" name="formType" value="contactPage" />
 		<!-- Honeypot -->
 		<div class="honeypot" aria-hidden="true">
 			<label for="website">Website</label>

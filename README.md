@@ -1,11 +1,12 @@
 # SvelteKit Starter Project
+
 This is a base starter project in SvelteKit that can be used as a template for future projects.
 
 ## Mat Montgomery Music Todos
-* "Black Hole Sun" not available on mobile?
-* Should "Custom Clinic" button open a modal form?
-* SEO and AEO optimization
 
+- "Black Hole Sun" not available on mobile?
+- Should "Custom Clinic" button open a modal form?
+- SEO and AEO optimization
 
 ## New Project
 
@@ -22,33 +23,37 @@ This is a base starter project in SvelteKit that can be used as a template for f
 11. Transfer ownership to client
 
 ## CSS
+
 The style sheets have been broken up for clarity and ease of use. The app.css has imports of all the other sheets and is the only one referenced in the project layout. The reset is basically a copy of Andy Bell's CSS reset. Typography and Forms have the styles for the copy, headings, form elements, and buttons.
 
 ### Variables
+
 The variables style sheet contains size and space variables from Utopia.fyi. It also contains some default fonts from ModernFontStacks.com (no downloading needed). There are also variables for light and dark neutral colors and a primary and secondary color. For colors, it's best to use a few colors and create variation with opacity.
 
 ### Layout
+
 The layout style sheet has a few useful layout options that commonly occur.
-* .container is used on every page to keep content a regular distance off the edge.
-* .auto-grid will take a set of grid items (usually product cards) and display them to automatically fit the space with uniform widths regardless of screen size.
-* .flex-group will automatically cluster a group of items (like filter chips) that don't need uniform width, but should be grouped together and able to wrap to the next row to prevent overflow.
-* .stack (and variations) are used to provide regularly spaced stacks of elements.
-* The sidebar layout uses a few different classes
-    * .with-sidebar defines the container that has a sidebar and other content.
-    * .sidebar is a child inside the .with-sidebar element and will stay the same size until it automatically switches to be on top of the other content at certain screen sizes (no media query required).
-    * .not-sidebar is the child that contains the main content. Its size will automatically adjust to fill the width.
-* .switcher will automatically switch from row to column depending on the screen size, also without media queries.
+
+- .container is used on every page to keep content a regular distance off the edge.
+- .auto-grid will take a set of grid items (usually product cards) and display them to automatically fit the space with uniform widths regardless of screen size.
+- .flex-group will automatically cluster a group of items (like filter chips) that don't need uniform width, but should be grouped together and able to wrap to the next row to prevent overflow.
+- .stack (and variations) are used to provide regularly spaced stacks of elements.
+- The sidebar layout uses a few different classes
+  - .with-sidebar defines the container that has a sidebar and other content.
+  - .sidebar is a child inside the .with-sidebar element and will stay the same size until it automatically switches to be on top of the other content at certain screen sizes (no media query required).
+  - .not-sidebar is the child that contains the main content. Its size will automatically adjust to fill the width.
+- .switcher will automatically switch from row to column depending on the screen size, also without media queries.
 
 ## Contact Form Setup
 
 The starter project includes a reusable contact form with:
 
-* Name, email, and message fields
-* Honeypot spam protection
-* Optional Cloudflare Turnstile protection
-* Email notification to the site owner
-* Automatic confirmation email to the person who submitted the form
-* SMTP support for services such as Gmail
+- Name, email, and message fields
+- Honeypot spam protection
+- Optional Cloudflare Turnstile protection
+- Email notification to the site owner
+- Automatic confirmation email to the person who submitted the form
+- SMTP support for services such as Gmail
 
 ### 1. Add the SMTP credentials
 
@@ -132,8 +137,8 @@ Turnstile provides an additional layer of protection against automated submissio
 
 Create a Turnstile site in the Cloudflare dashboard and obtain:
 
-* Site Key
-* Secret Key
+- Site Key
+- Secret Key
 
 Add them to `.env`:
 
@@ -204,13 +209,13 @@ After deployment, submit the contact form from the live website.
 
 Confirm that:
 
-* The form submits successfully.
-* The client receives the notification email.
-* The visitor receives the confirmation email.
-* Clicking **Reply** on the client notification replies to the visitor.
-* Turnstile works correctly, if enabled.
-* The form behaves correctly on mobile.
-* Required fields prevent empty submissions.
+- The form submits successfully.
+- The client receives the notification email.
+- The visitor receives the confirmation email.
+- Clicking **Reply** on the client notification replies to the visitor.
+- Turnstile works correctly, if enabled.
+- The form behaves correctly on mobile.
+- Required fields prevent empty submissions.
 
 ### Quick Setup Checklist
 
@@ -233,7 +238,6 @@ For a new client site, the normal setup is:
 ```
 
 Once the starter project is configured, the contact form itself should require very little customization from site to site. Most client-specific configuration should happen through environment variables rather than by modifying the component.
-
 
 ## Client Handoff & Deployment Checklist
 

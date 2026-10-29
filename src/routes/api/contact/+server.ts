@@ -239,7 +239,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			.join('');
 
 		// Email the client
-		const clientResult = await transporter.sendMail({
+		await transporter.sendMail({
 			from: SMTP_FROM,
 			to: CONTACT_EMAIL,
 			replyTo: email,
@@ -250,17 +250,19 @@ export const POST: RequestHandler = async ({ request }) => {
 			} — ${senderName.replace(/[\r\n]+/g, ' ')}`,
 			text: plainDetails,
 			html: `
-			<h2>${escapeHtml(`${
-				formType === 'contactPage'
-					? `${config.clientSubject} ${values.subject} message`
-					: config.clientSubject
-			} — ${senderName.replace(/[\r\n]+/g, ' ')}`)}</h2>
+			<h2>${escapeHtml(
+				`${
+					formType === 'contactPage'
+						? `${config.clientSubject} ${values.subject} message`
+						: config.clientSubject
+				} — ${senderName.replace(/[\r\n]+/g, ' ')}`
+			)}</h2>
 			${htmlDetails}
             `
 		});
 
 		// Confirm receipt to the visitor
-		const visitorResult = await transporter.sendMail({
+		await transporter.sendMail({
 			from: SMTP_FROM,
 			to: email,
 			subject: config.confirmationSubject,

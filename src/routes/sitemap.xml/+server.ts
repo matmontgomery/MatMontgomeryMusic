@@ -1,15 +1,8 @@
-
 import type { RequestHandler } from './$types';
 
 const siteUrl = 'https://matmontgomerymusic.com';
 
-const pages = [
-	'/',
-	'/lessons',
-	'/compositions',
-	'/performance',
-    '/contact'
-];
+const pages = ['/', '/lessons', '/compositions', '/performance', '/contact'];
 
 export const GET: RequestHandler = () => {
 	const urls = pages

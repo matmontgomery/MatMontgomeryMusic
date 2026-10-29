@@ -73,7 +73,7 @@
 	{/if}
 
 	<form onsubmit={handleSubmit}>
-		<input type="hidden" name="formType" value="general">
+		<input type="hidden" name="formType" value="general" />
 		<!-- Honeypot -->
 		<div class="honeypot" aria-hidden="true">
 			<label for="website">Website</label>

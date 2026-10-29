@@ -1,9 +1,9 @@
 <script lang="ts">
-    import NavBar from "./NavBar.svelte";
+	import NavBar from './NavBar.svelte';
 
-    let { onclick } = $props();
+	let { onclick } = $props();
 </script>
 
 <div class="header">
-    <NavBar {onclick} />
+	<NavBar {onclick} />
 </div>

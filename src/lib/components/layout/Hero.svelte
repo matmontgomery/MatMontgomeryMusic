@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Button from '../ui/Button.svelte';
 	import type { Snippet } from 'svelte';
 
 	let {
@@ -10,7 +9,6 @@
 		text = 'Here is a description of what this page is about',
 		background = '/android-chrome-192x192.png',
 		posTop,
-		onclick,
 		children
 	}: {
 		title?: string;

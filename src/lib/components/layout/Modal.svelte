@@ -68,11 +68,7 @@
 <svelte:window onkeydown={handleKeydown} />
 
 {#if open}
-	<div
-		class="modal-backdrop"
-		role="presentation"
-		onclick={handleBackdropClick}
-	>
+	<div class="modal-backdrop" role="presentation" onclick={handleBackdropClick}>
 		<div class="modal-wrapper">
 			<div
 				bind:this={dialog}
@@ -84,12 +80,7 @@
 				style={`--modal-max-width: ${maxWidth}`}
 			>
 				{#if closeButton}
-					<button
-						class="close-button"
-						type="button"
-						aria-label="Close modal"
-						onclick={close}
-					>
+					<button class="close-button" type="button" aria-label="Close modal" onclick={close}>
 						<span aria-hidden="true">&times;</span>
 					</button>
 				{/if}
@@ -108,7 +99,7 @@
 	.modal-backdrop {
 		position: fixed;
 		inset: 0;
-        margin: 0;
+		margin: 0;
 		z-index: 1000;
 		background: rgb(0 0 0 / 0.25);
 		backdrop-filter: blur(8px);
@@ -116,7 +107,7 @@
 		animation: fade-in 150ms ease-out;
 		overflow-y: auto;
 	}
-	
+
 	.modal-wrapper {
 		display: flex;
 		align-items: center;
@@ -129,14 +120,12 @@
 
 		width: min(100%, var(--modal-max-width));
 
-
 		padding: 2rem;
 
 		background: var(--clr-dark);
 		border-radius: 0.75rem;
 
-		box-shadow:
-			0 0 1rem var(--clr-primary);
+		box-shadow: 0 0 1rem var(--clr-primary);
 
 		outline: none;
 

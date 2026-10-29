@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	type MediaType = 'audio' | 'youtube';
 
 	interface Props {
@@ -9,7 +8,7 @@
 		label?: string;
 		background?: string;
 		artist?: string;
-        details?: string;
+		details?: string;
 	}
 
 	let {
@@ -19,7 +18,7 @@
 		label = 'Live Recording',
 		background = '/android-chrome-192x192.png',
 		artist,
-        details
+		details
 	}: Props = $props();
 
 	let audioEl: HTMLAudioElement;
@@ -110,9 +109,9 @@
 				<p class="artist">{artist}</p>
 			{/if}
 
-            {#if details}
-                <p class="details">{details}</p>
-            {/if}
+			{#if details}
+				<p class="details">{details}</p>
+			{/if}
 		</div>
 
 		{#if type === 'audio'}

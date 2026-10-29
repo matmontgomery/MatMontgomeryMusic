@@ -76,12 +76,15 @@
 	{#if !noHeader}
 		<div class="stack small">
 			<h3 class="color-primary">Inquire About a Commission</h3>
-			<p>Fill out the form bellow to receive a custom project timeline and quote, or to schedule an exploratory call.</p>
+			<p>
+				Fill out the form bellow to receive a custom project timeline and quote, or to schedule an
+				exploratory call.
+			</p>
 		</div>
 	{/if}
 
 	<form onsubmit={handleSubmit}>
-		<input type="hidden" name="formType" value="commission">
+		<input type="hidden" name="formType" value="commission" />
 		<!-- Honeypot -->
 		<div class="honeypot" aria-hidden="true">
 			<label for="website">Website</label>
@@ -97,19 +100,26 @@
 		<div>
 			<label for="school">School/Organization</label>
 
-			<input id="school" name="school" type="text" bind:value={school} autocomplete="organization" required />
+			<input
+				id="school"
+				name="school"
+				type="text"
+				bind:value={school}
+				autocomplete="organization"
+				required
+			/>
 		</div>
-		
+
 		<div>
 			<label for="email">Email Address</label>
-			
+
 			<input
-			id="email"
-			name="email"
-			type="email"
-			bind:value={email}
-			autocomplete="email"
-			required
+				id="email"
+				name="email"
+				type="email"
+				bind:value={email}
+				autocomplete="email"
+				required
 			/>
 		</div>
 
@@ -172,11 +182,11 @@
 
 <style>
 	.contact-wrapper {
-        background-color: var(--surface-container);
-        border: 1px solid var(--outline-variant);
-        border-radius: var(--border-radius-sm);
+		background-color: var(--surface-container);
+		border: 1px solid var(--outline-variant);
+		border-radius: var(--border-radius-sm);
 		padding: 1rem;
-    }
+	}
 
 	h2 {
 		margin: 0;

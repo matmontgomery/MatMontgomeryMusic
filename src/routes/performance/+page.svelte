@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Hero from '$lib/components/layout/Hero.svelte';
 	import matTrumpet2 from '$lib/assets/mat_trumpet_2.avif';
 	import MediaCard from '$lib/components/ui/MediaCard.svelte';
@@ -7,33 +7,21 @@
 <svelte:head>
 	<title>Trumpet Performer | Mat Montgomery</title>
 
-	<link
-		rel="canonical"
-		href="https://matmontgomerymusic.com/performance"
-	/>
+	<link rel="canonical" href="https://matmontgomerymusic.com/performance" />
 
 	<meta
 		name="description"
 		content="Listen to trumpet recordings by Mat Montgomery and inquire about live or studio performances in jazz, pop, funk, and orchestral music."
 	/>
 
-	<meta
-		property="og:title"
-		content="Trumpet Performer | Mat Montgomery"
-	/>
+	<meta property="og:title" content="Trumpet Performer | Mat Montgomery" />
 	<meta
 		property="og:description"
 		content="Hear Mat Montgomery play trumpet across jazz, pop, funk, and orchestral styles. Explore recordings and inquire about performance opportunities."
 	/>
 	<meta property="og:type" content="website" />
-	<meta
-		property="og:url"
-		content="https://matmontgomerymusic.com/performance"
-	/>
-	<meta
-		property="og:image"
-		content="https://matmontgomerymusic.com/mat_trumpet_2.avif"
-	/>
+	<meta property="og:url" content="https://matmontgomerymusic.com/performance" />
+	<meta property="og:image" content="https://matmontgomerymusic.com/mat_trumpet_2.avif" />
 </svelte:head>
 
 <Hero
@@ -106,21 +94,21 @@
 				label="Video"
 				artist="Mat Montgomery"
 			/> -->
-			<MediaCard 
+			<MediaCard
 				type="youtube"
 				src="https://youtu.be/TtkACB99Nm0?si=y9bc-1R8ELO7BwOB"
 				title="Here's That Rainy Day"
 				label="Video"
 				artist="Mat Montgomery"
 			/>
-			<MediaCard 
+			<MediaCard
 				type="youtube"
 				src="https://youtu.be/oRVHWTTcWOs?si=j2BxpiHypV6GB_XR"
 				title="Telemann Canonic Sonata Duet no.1"
 				label="Video"
 				artist="Mat Montgomery"
 			/>
-			<MediaCard 
+			<MediaCard
 				type="youtube"
 				src="https://youtu.be/WqM6tynWPfk?si=eKj0QB-bUBpKzV2K"
 				title="Black Hole Sun"

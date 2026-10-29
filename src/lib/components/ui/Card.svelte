@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	interface Props {
 		src?: string;
 		alt?: string;
@@ -47,10 +46,11 @@
 		justify-content: center;
 		box-shadow: 0 0 8px -4px var(--clr-primary);
 	}
-	
+
 	.icon > img {
 		aspect-ratio: 16 / 9;
-		height: 100%; width: 100%;
+		height: 100%;
+		width: 100%;
 		object-fit: cover;
 		object-position: center 10%;
 	}
@@ -72,7 +72,7 @@
 	}
 
 	a::after {
-		content: " \2192";
+		content: ' \2192';
 		position: absolute;
 		right: 0;
 		transform: translateX(calc(100% + 0.5em));

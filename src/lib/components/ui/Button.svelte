@@ -18,7 +18,7 @@
 	}: Props = $props();
 </script>
 
-<button {...rest} {type} {onclick} {disabled} class:secondary class:outline >
+<button {...rest} {type} {onclick} {disabled} class:secondary class:outline>
 	{text}
 </button>
 
@@ -34,7 +34,9 @@
 		border-radius: var(--border-radius-sm);
 		opacity: 1;
 		scale: 0.99;
-		transition: opacity 0.2s, scale 0.2s;
+		transition:
+			opacity 0.2s,
+			scale 0.2s;
 		color: var(--clr-dark);
 	}
 

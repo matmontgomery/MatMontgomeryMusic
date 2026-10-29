@@ -1,11 +1,11 @@
 /* HEADINGS, PARAGRAPHS */
 
 p {
-    --paragraph-font: var(--font-body);
-    font-family: var(--paragraph-font);
-    font-size: var(--size-1);
-    color: var(--clr-light);
-    opacity: 0.65;
+	--paragraph-font: var(--font-body);
+	font-family: var(--paragraph-font);
+	font-size: var(--size-1);
+	color: var(--clr-light);
+	opacity: 0.65;
 }
 
 li {
@@ -23,19 +23,30 @@ label {
 }
 
 /* Set shorter line heights on headings and interactive elements */
-h1, h2, h3, h4,
-button, input, label {
-  line-height: 1;
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+	line-height: 1;
 }
 
 /* Balance text wrapping on headings */
-h1, h2,
-h3, h4 {
-  text-wrap: balance;
+h1,
+h2,
+h3,
+h4 {
+	text-wrap: balance;
 }
 
-h1, h2, h3, h4, h5 {
-    --heading-font: var(--font-display);
+h1,
+h2,
+h3,
+h4,
+h5 {
+	--heading-font: var(--font-display);
 	font-family: var(--heading-font);
 	font-weight: 400;
 	letter-spacing: -0.02em;
@@ -48,35 +59,35 @@ h4 {
 }
 
 h3 {
-    font-size: var(--size-2);
+	font-size: var(--size-2);
 	opacity: 0.8;
 	font-weight: 500;
 }
 
 h2 {
-    font-size: var(--size-3);
+	font-size: var(--size-3);
 	opacity: 0.8;
 }
 
 h1 {
-    font-size: var(--size-4);
+	font-size: var(--size-4);
 }
 
 .title {
-    text-transform: uppercase;
+	text-transform: uppercase;
 	text-align: center;
 }
 
 /* A elements that don't have a class get default styles */
 a {
-  font-family: var(--font-body);
-  text-decoration-skip-ink: auto;
-  text-decoration: none;
-  color: currentColor;
-  opacity: 0.8;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  letter-spacing: 0.1em;
+	font-family: var(--font-body);
+	text-decoration-skip-ink: auto;
+	text-decoration: none;
+	color: currentColor;
+	opacity: 0.8;
+	cursor: pointer;
+	transition: opacity 0.2s;
+	letter-spacing: 0.1em;
 }
 
 a:hover,

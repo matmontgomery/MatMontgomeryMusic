@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Hero from '$lib/components/layout/Hero.svelte';
 	import Modal from '$lib/components/layout/Modal.svelte';
 	import Card from '$lib/components/ui/Card.svelte';
@@ -8,12 +8,24 @@
 	import matTeaching from '$lib/assets/mat_teaching_2.avif';
 	import matComp from '$lib/assets/mat_comp_1.avif';
 	import Button from '$lib/components/ui/Button.svelte';
-	import { link } from 'fs';
 
 	let showModal = $state(false);
+
+	const structuredData = {
+		'@context': 'https://schema.org',
+		'@type': 'Person',
+		name: 'Mat Montgomery',
+		url: 'https://matmontgomerymusic.com/',
+		jobTitle: ['Trumpet Performer', 'Trumpet Teacher', 'Jazz Composer'],
+		description:
+			'Trumpet performer, teacher, and jazz composer creating original compositions and arrangements.'
+	};
 </script>
 
 <svelte:head>
+	<script type="application/ld+json">
+		{@html JSON.stringify(structuredData)}
+	</script>
 	<title>Mat Montgomery | Trumpet Teacher, Performer & Composer</title>
 	<link rel="canonical" href="https://matmontgomerymusic.com/" />
 
@@ -22,20 +34,14 @@
 		content="Meet Mat Montgomery: trumpet teacher serving Olympia, Lacey, and Tumwater, professional performer, and jazz composer creating original music and arrangements."
 	/>
 
-	<meta
-		property="og:title"
-		content="Mat Montgomery | Trumpet Teacher, Performer & Composer"
-	/>
+	<meta property="og:title" content="Mat Montgomery | Trumpet Teacher, Performer & Composer" />
 	<meta
 		property="og:description"
 		content="Explore trumpet lessons in the Olympia area, performance recordings, original jazz compositions, and custom music commissions."
 	/>
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://matmontgomerymusic.com/" />
-	<meta
-		property="og:image"
-		content="https://matmontgomerymusic.com/mat_trumpet_2.avif"
-	/>
+	<meta property="og:image" content="https://matmontgomerymusic.com/mat_trumpet_2.avif" />
 </svelte:head>
 
 <Hero

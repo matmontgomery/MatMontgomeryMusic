@@ -76,13 +76,16 @@
 		turnstileToken = '';
 	}
 
-	let { noHeader = false, selectedTime }: { noHeader?: boolean, selectedTime?: string } = $props();
+	let { noHeader = false, selectedTime }: { noHeader?: boolean; selectedTime?: string } = $props();
 </script>
 
 <div class="contact-wrapper">
 	{#if !noHeader}
 		<h2>Book a Lesson</h2>
-		<p>Fill out the form to schedule a lesson with Mat. Mat teaches in Olympia, Lacey, Tumwater area. He aims to reply within 1-2 business days.</p>
+		<p>
+			Fill out the form to schedule a lesson with Mat. Mat teaches in Olympia, Lacey, Tumwater area.
+			He aims to reply within 1-2 business days.
+		</p>
 	{/if}
 
 	<form onsubmit={handleSubmit}>
@@ -109,7 +112,7 @@
 			<label for="length">Lesson Length</label>
 			<select name="length" id="length" bind:value={selectedTime}>
 				<option value="" disabled>Select lesson length</option>
-				{#each lessonTimes as time (time) }
+				{#each lessonTimes as time (time)}
 					<option value={time.value}>{time.title}</option>
 				{/each}
 			</select>

@@ -1,14 +1,14 @@
 /* UTILITY CLASSES */
 
 .text-align-center {
-    text-align: center;
+	text-align: center;
 }
 
 .color-primary {
-    color: var(--clr-primary);
+	color: var(--clr-primary);
 }
 
 .accent {
-    font-style: italic;
-    color: var(--clr-secondary);
+	font-style: italic;
+	color: var(--clr-secondary);
 }

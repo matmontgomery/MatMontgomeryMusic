@@ -133,7 +133,7 @@ This design system utilizes a high-contrast pairing to balance tradition with mo
 
 ## Layout & Spacing
 
-The layout follows a **Fixed Grid** philosophy on desktop to maintain "composed" compositions that feel intentional and architectural. 
+The layout follows a **Fixed Grid** philosophy on desktop to maintain "composed" compositions that feel intentional and architectural.
 
 - **Grid:** A 12-column grid with wide 32px gutters. This allows for asymmetrical layouts where text and imagery can "breathe," mirroring the silence between notes.
 - **Vertical Rhythm:** Use increments of 8px. Large sections should be separated by significant padding (minimum 128px) to emphasize the premium, spacious brand identity.
@@ -150,7 +150,7 @@ To maintain a sophisticated feel, the design system avoids heavy shadows, instea
 
 ## Shapes
 
-The shape language is **Soft (0.25rem)**. This subtle rounding removes the clinical sharpness of pure 90-degree angles while maintaining a structured, formal appearance. 
+The shape language is **Soft (0.25rem)**. This subtle rounding removes the clinical sharpness of pure 90-degree angles while maintaining a structured, formal appearance.
 
 - **Standard Elements:** Buttons, input fields, and small cards use the base `rounded` (4px).
 - **Large Containers:** Images or full-bleed sections should remain sharp (0px) to anchor the layout to the grid.

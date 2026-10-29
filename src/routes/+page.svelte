@@ -23,9 +23,7 @@
 </script>
 
 <svelte:head>
-	<script type="application/ld+json">
-		{@html JSON.stringify(structuredData)}
-	</script>
+	{@html `<script type="application/ld+json">${JSON.stringify(structuredData).replace(/</g, '\\u003c')}</script>`}
 	<title>Mat Montgomery | Trumpet Teacher, Performer & Composer</title>
 	<link rel="canonical" href="https://matmontgomerymusic.com/" />
 

@@ -6,6 +6,7 @@
 	import CommissionForm from '$lib/components/ui/CommissionForm.svelte';
 	import { goto } from '$app/navigation';
 	import { compositions } from '$lib/data/compositions';
+	import { resolve } from '$app/paths';
 
 	const structuredData = {
 		'@context': 'https://schema.org',
@@ -28,9 +29,7 @@
 </script>
 
 <svelte:head>
-	<script type="application/ld+json">
-		{@html JSON.stringify(structuredData)}
-	</script>
+	{@html `<script type="application/ld+json">${JSON.stringify(structuredData).replace(/</g, '\\u003c')}</script>`}
 
 	<title>Jazz Band Compositions & Arrangements | Mat Montgomery</title>
 
@@ -73,13 +72,13 @@
 		<Button
 			text="Commission a Piece"
 			style="--size: var(--size--1)"
-			onclick={() => goto('#commission')}
+			onclick={() => goto(resolve('#commission'))}
 		/>
 		<Button
 			text="Browse Selected Works"
 			outline
 			style="--size: var(--size--1)"
-			onclick={() => goto('#compositions')}
+			onclick={() => goto(resolve('#compositions'))}
 		/>
 	</div>
 </Hero>

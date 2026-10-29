@@ -5,6 +5,7 @@
 	import trumpetEns from '$lib/assets/trumpet_ens.jpg';
 	import LessonForm from '$lib/components/ui/LessonForm.svelte';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 
 	let selectedTime = $state('');
 
@@ -45,9 +46,7 @@
 </script>
 
 <svelte:head>
-	<script type="application/ld+json">
-		{@html JSON.stringify(structuredData)}
-	</script>
+	{@html `<script type="application/ld+json">${JSON.stringify(structuredData).replace(/</g, '\\u003c')}</script>`}
 
 	<title>Private Trumpet Lessons in Olympia, WA | Mat Montgomery</title>
 
@@ -83,7 +82,7 @@
 	<Button
 		text="Sign Up For Lessons"
 		onclick={() => {
-			goto('#book');
+			goto(resolve('/lessons#book'));
 		}}
 	/>
 </Hero>
@@ -162,7 +161,7 @@
 					secondary
 					onclick={() => {
 						selectedTime = '60min';
-						goto('#book');
+						goto(resolve('/lessons#book'));
 					}}
 				/>
 			</div>
@@ -182,7 +181,7 @@
 					text="Book Now"
 					onclick={() => {
 						selectedTime = '30min';
-						goto('#book');
+						goto(resolve('/lessons#book'));
 					}}
 				/>
 			</div>
@@ -201,7 +200,7 @@
 					text="Inquire"
 					outline
 					onclick={() => {
-						goto('/contact?selectedSubject=clinic#contact');
+						goto(resolve('/contact?selectedSubject=clinic#contact'));
 					}}
 				/>
 			</div>

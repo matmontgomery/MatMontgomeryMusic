@@ -2,6 +2,7 @@
 	import Button from './Button.svelte';
 	import { difficulty } from '$lib/data/difficulty';
 	import { activeAudio } from '$lib/stores/activeAudio';
+	import { resolve } from '$app/paths';
 
 	let { composition } = $props();
 

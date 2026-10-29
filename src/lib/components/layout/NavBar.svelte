@@ -49,7 +49,6 @@
 			<li><a href={resolve(page.href)} onclick={closeMenu}> {page.name} </a></li>
 		{/each}
 		<li><Button text="Book Lesson" --size="var(--size--1)" {onclick} /></li>
-		<!-- <li><Button text="Book Lesson" --size="var(--size--1)" onclick={() => goto('/lessons#book')} /></li> -->
 	</ul>
 </nav>
 

@@ -2,7 +2,6 @@
 	import Button from './Button.svelte';
 	import { difficulty } from '$lib/data/difficulty';
 	import { activeAudio } from '$lib/stores/activeAudio';
-	import { resolve } from '$app/paths';
 
 	let { composition } = $props();
 
@@ -76,11 +75,13 @@
 		}
 	});
 
-	function updateDuration() {
-		if (!audioElement) return;
+	function updateDuration(audio: HTMLAudioElement | undefined = audioElement) {
+		if (!audio) return;
 
-		if (Number.isFinite(audioElement.duration)) {
-			duration = audioElement.duration;
+		const audioDuration = audio.duration;
+
+		if (Number.isFinite(audioDuration) && audioDuration > 0) {
+			duration = audioDuration;
 		}
 	}
 
@@ -185,8 +186,12 @@
 						bind:this={audioElement}
 						src={composition.recording}
 						preload="metadata"
-						onloadedmetadata={updateDuration}
-						ondurationchange={updateDuration}
+						onloadedmetadata={(event) => updateDuration(event.currentTarget)}
+						ondurationchange={(event) => updateDuration(event.currentTarget)}
+						onloadstart={() => {
+							duration = 0;
+							currentTime = 0;
+						}}
 						onerror={() => {
 							console.error('Audio failed to load:', composition.recording, audioElement?.error);
 						}}
@@ -225,8 +230,7 @@
 						/>
 					</div>
 					<p class="time-display">
-						{formatTime(currentTime)} /
-						{formatTime(audioElement?.duration ?? duration)}
+						{formatTime(currentTime)} / {formatTime(duration)}
 					</p>
 				{/if}
 			</div>

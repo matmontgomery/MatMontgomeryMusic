@@ -72,13 +72,13 @@
 		<Button
 			text="Commission a Piece"
 			style="--size: var(--size--1)"
-			onclick={() => goto(resolve('#commission'))}
+			onclick={() => goto(resolve('/compositions#commission'))}
 		/>
 		<Button
 			text="Browse Selected Works"
 			outline
 			style="--size: var(--size--1)"
-			onclick={() => goto(resolve('#compositions'))}
+			onclick={() => goto(resolve('/compositions#compositions'))}
 		/>
 	</div>
 </Hero>
@@ -88,8 +88,11 @@
 		<h2 class="color-primary">Selected Compositions</h2>
 		<p>
 			These are a few pieces that Mat has written or arragned over the years. Many more of his
-			composotions are available on <a class="color-primary" href="https://www.dapperpage.com/"
-				>DapperPage.com</a
+			composotions are available on <a
+				class="color-primary"
+				target="_blank"
+				rel="noopener noreferrer"
+				href="https://www.dapperpage.com/">DapperPage.com</a
 			>.
 		</p>
 	</div>

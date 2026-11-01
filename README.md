@@ -7,6 +7,12 @@ This is a base starter project in SvelteKit that can be used as a template for f
 - "Black Hole Sun" not available on mobile?
 - Should "Custom Clinic" button open a modal form?
 - SEO and AEO optimization
+- ~~Click outside of modal closes the modal~~
+- ~~"Commission a Piece" and "Browse Selected Works" not working~~
+- ~~2nd "DapperPage.com" link should open in new tab~~
+- ~~total time for composition cards are all 0:00~~
+- ~~Make the confirmation emails more professional~~
+- Notification email for student should have student name in the subject.
 
 ## New Project
 

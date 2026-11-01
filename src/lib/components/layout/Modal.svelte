@@ -68,8 +68,8 @@
 <svelte:window onkeydown={handleKeydown} />
 
 {#if open}
-	<div class="modal-backdrop" role="presentation" onclick={handleBackdropClick}>
-		<div class="modal-wrapper">
+	<div class="modal-backdrop">
+		<div class="modal-wrapper" onclick={handleBackdropClick} role="presentation">
 			<div
 				bind:this={dialog}
 				class="modal"

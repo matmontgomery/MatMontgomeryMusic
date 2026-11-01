@@ -39,9 +39,9 @@ type FormConfig = {
 const FORM_CONFIG: Record<string, FormConfig> = {
 	general: {
 		clientSubject: 'New general contact message',
-		confirmationSubject: 'Thanks for contacting me',
+		confirmationSubject: 'Thanks for contacting Mat',
 		confirmationMessage:
-			"Thanks for getting in touch. I've received your message and will get back to you as soon as possible.",
+			"Thanks so much for reaching out to me! I got your message and I'll get back to you soon. Thanks!",
 		senderNameField: 'name',
 		fields: [
 			{ key: 'name', label: 'Name', required: true },
@@ -52,9 +52,9 @@ const FORM_CONFIG: Record<string, FormConfig> = {
 
 	contactPage: {
 		clientSubject: 'New',
-		confirmationSubject: 'Thanks for contacting me',
+		confirmationSubject: 'Thanks for contacting Mat',
 		confirmationMessage:
-			"Thanks for getting in touch. I've received your message and will get back to you as soon as possible.",
+			"Thanks so much for reaching out to me! I got your message and I'll get back to you soon. Thanks!",
 		senderNameField: 'name',
 		fields: [
 			{ key: 'name', label: 'Name', required: true },
@@ -66,9 +66,9 @@ const FORM_CONFIG: Record<string, FormConfig> = {
 
 	lesson: {
 		clientSubject: 'New trumpet lesson inquiry',
-		confirmationSubject: 'Your trumpet lesson inquiry',
+		confirmationSubject: 'Trumpet Lessons with Mat Montgomery',
 		confirmationMessage:
-			"Thanks for your interest in trumpet lessons. I've received your inquiry and will follow up about availability and next steps.",
+			"Thanks for reaching out about trumpet lessons! I got your message and I'll be in touch soon to go over details, answer any questions, and schedule the lessons. Thanks!",
 		senderNameField: 'parentName',
 		fields: [
 			{ key: 'parentName', label: 'Parent/Guardian Name', required: true },
@@ -83,9 +83,9 @@ const FORM_CONFIG: Record<string, FormConfig> = {
 
 	commission: {
 		clientSubject: 'New commission inquiry',
-		confirmationSubject: 'Your commission inquiry',
+		confirmationSubject: 'Custom Commission by Mat Montgomery',
 		confirmationMessage:
-			"Thanks for your interest in a commission. I've received your project details and will be in touch to discuss them.",
+			"Thanks for reaching out about a commission! I'll be in touch soon to go over the project details together.",
 		senderNameField: 'name',
 		fields: [
 			{ key: 'name', label: 'Name', required: true },
@@ -280,9 +280,14 @@ export const POST: RequestHandler = async ({ request }) => {
 			html: `
 			<p>Hi ${escapeHtml(senderName)},</p>
 			<p>${escapeHtml(config.confirmationMessage)}</p>
+			<p><span style="opacity: 65%;">--</span><br>
+			<span style="opacity: 65%;">Mat Montgomery</span><br>
+			<a href="http://matmontgomerymusic.com" target="_blank" rel="noopener noreferrer">matmontgomerymusic.com</a>
+			<br>
+			<a href="http://dapperpage.com" target="_blank" rel="noopener noreferrer">dapperpage.com</a></p>
+			<br>
 			<h3>Your submission</h3>
 			${htmlDetails}
-			<p>Thank you!</p>
             `
 		});
 

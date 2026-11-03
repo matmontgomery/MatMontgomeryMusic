@@ -111,7 +111,7 @@
 			<h2 class="color-primary">Commission a Tailored Work</h2>
 			<p>
 				Every ensemble has a distinct voice, a specific set of strengths, and star soloists who
-				deserve music written just for them. For over 20 years, Mat Montgomery has collaborated with
+				deserve music written just for them. For over a decade, Mat Montgomery has collaborated with
 				festival directors, school band programs, collegiate jazz orchestras, and professional
 				ensembles to craft unforgettable premiere repertoire.
 			</p>

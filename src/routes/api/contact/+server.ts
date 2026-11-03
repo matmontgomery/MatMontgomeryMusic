@@ -218,6 +218,10 @@ export const POST: RequestHandler = async ({ request }) => {
 		}
 
 		const senderName = values[config.senderNameField] || 'Website visitor';
+		const subjectName =
+			formType === 'lesson'
+				? values.studentName
+				: senderName;
 
 		// Format the submitted fields for both email formats
 		const submittedFields = config.fields
@@ -247,7 +251,7 @@ export const POST: RequestHandler = async ({ request }) => {
 				formType === 'contactPage'
 					? `${config.clientSubject} ${values.subject} message`
 					: config.clientSubject
-			} — ${senderName.replace(/[\r\n]+/g, ' ')}`,
+			} — ${subjectName.replace(/[\r\n]+/g, ' ')}`,
 			text: plainDetails,
 			html: `
 			<h2>${escapeHtml(
@@ -255,7 +259,7 @@ export const POST: RequestHandler = async ({ request }) => {
 					formType === 'contactPage'
 						? `${config.clientSubject} ${values.subject} message`
 						: config.clientSubject
-				} — ${senderName.replace(/[\r\n]+/g, ' ')}`
+				} — ${subjectName.replace(/[\r\n]+/g, ' ')}`
 			)}</h2>
 			${htmlDetails}
             `

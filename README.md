@@ -60,12 +60,12 @@ The starter project includes a reusable contact form with:
 Create or update your `.env` file with the email account that will send the messages:
 
 ```env
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=465
-SMTP_USER=your-email@example.com
-SMTP_PASS=your-app-password
-SMTP_FROM=your-email@example.com
-CONTACT_EMAIL=client@example.com
+SMTP_HOST=
+SMTP_PORT=
+SMTP_USER=
+SMTP_PASS=
+SMTP_FROM=
+CONTACT_EMAIL=
 ```
 
 **What these variables mean:**

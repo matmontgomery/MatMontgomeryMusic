@@ -218,6 +218,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		}
 
 		const senderName = values[config.senderNameField] || 'Website visitor';
+		const senderFirstName = senderName.split(' ')[0];
 		const subjectName =
 			formType === 'lesson'
 				? values.studentName
@@ -271,7 +272,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			to: email,
 			subject: config.confirmationSubject,
 			text: `
-			Hi ${senderName},
+			Hi ${senderFirstName},
 			
 			${config.confirmationMessage}
 			
@@ -282,7 +283,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			Thank you!
             `.trim(),
 			html: `
-			<p>Hi ${escapeHtml(senderName)},</p>
+			<p>Hi ${escapeHtml(senderFirstName)},</p>
 			<p>${escapeHtml(config.confirmationMessage)}</p>
 			<p><span style="opacity: 65%;">--</span><br>
 			<span style="opacity: 65%;">Mat Montgomery</span><br>

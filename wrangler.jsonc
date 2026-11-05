@@ -8,6 +8,11 @@
 		"binding": "ASSETS",
 		"directory": ".svelte-kit/cloudflare"
 	},
+	"vars": {
+	  "PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAFX8gZ880xFkOpEj",
+	  "SMTP_HOST": "smtp.gmail.com",
+	  "SMTP_PORT": "587"
+	},
 	"workers_dev": true,
 	"preview_urls": true
 }

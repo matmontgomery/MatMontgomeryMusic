@@ -1,16 +1,19 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import nodemailer from 'nodemailer';
+import { env } from '$env/dynamic/private';
 
-import {
-	SMTP_HOST,
-	SMTP_PORT,
-	SMTP_USER,
-	SMTP_PASS,
-	SMTP_FROM,
-	CONTACT_EMAIL,
-	TURNSTILE_SECRET_KEY
-} from '$env/static/private';
+// import {
+// 	SMTP_HOST,
+// 	SMTP_PORT,
+// 	SMTP_USER,
+// 	SMTP_PASS,
+// 	SMTP_FROM,
+// 	CONTACT_EMAIL,
+// 	TURNSTILE_SECRET_KEY
+// } from '$env/static/private';
+
+const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM, CONTACT_EMAIL, TURNSTILE_SECRET_KEY } = env;
 
 const transporter = nodemailer.createTransport({
 	host: SMTP_HOST,

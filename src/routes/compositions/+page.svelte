@@ -87,8 +87,8 @@
 	<div class="container stack small">
 		<h2 class="color-primary">Selected Compositions</h2>
 		<p>
-			These are a few pieces that Mat has written or arragned over the years. Many more of his
-			composotions are available on <a
+			These are a few pieces that Mat has written or arranged over the years. Many more of his
+			compositions are available on <a
 				class="color-primary"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -117,7 +117,7 @@
 			</p>
 			<p>
 				Whether honoring an special occassion, featuring a graduating senior, or presenting a
-				festival competition chart, Mat partners directly with your program throught the creative
+				festival competition chart, Mat partners directly with your program throughout the creative
 				process.
 			</p>
 			<h3 class="color-primary">The Commission Process</h3>
@@ -125,7 +125,7 @@
 				<li>
 					<h4>Repertoire Consultation</h4>
 					<p>
-						We discuss your ensemble instrumentation, solois strengths, difficulty targets, and
+						We discuss your ensemble instrumentation, soloist strengths, difficulty targets, and
 						event timeline to determine the stylistic direction.
 					</p>
 				</li>
@@ -139,7 +139,7 @@
 				<li>
 					<h4>Dapper Page Engraving Standard</h4>
 					<p>
-						Compleete delevery of publication-grade conductor score, formatted parts, and dedication
+						Complete delivery of publication-grade conductor score, formatted parts, and dedication
 						inscriptions.
 					</p>
 				</li>

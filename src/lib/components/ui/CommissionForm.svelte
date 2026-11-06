@@ -77,7 +77,7 @@
 		<div class="stack small">
 			<h3 class="color-primary">Inquire About a Commission</h3>
 			<p>
-				Fill out the form bellow to receive a custom project timeline and quote, or to schedule an
+				Fill out the form below to receive a custom project timeline and quote, or to schedule an
 				exploratory call.
 			</p>
 		</div>

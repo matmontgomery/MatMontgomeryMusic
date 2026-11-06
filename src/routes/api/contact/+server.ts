@@ -1,29 +1,34 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import nodemailer from 'nodemailer';
 import { env } from '$env/dynamic/private';
 
-// import {
-// 	SMTP_HOST,
-// 	SMTP_PORT,
-// 	SMTP_USER,
-// 	SMTP_PASS,
-// 	SMTP_FROM,
-// 	CONTACT_EMAIL,
-// 	TURNSTILE_SECRET_KEY
-// } from '$env/static/private';
+async function sendEmail(options: {
+	to: string;
+	subject: string;
+	text: string;
+	html: string;
+	replyTo?: string;
+}) {
+	const res = await fetch('https://api.resend.com/emails', {
+		method: 'POST',
+		headers: {
+			Authorization: `Bearer ${env.RESEND_API_KEY}`,
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			from: env.MAIL_FROM,
+			to: [options.to],
+			subject: options.subject,
+			text: options.text,
+			html: options.html,
+			...(options.replyTo ? { reply_to: options.replyTo } : {})
+		})
+	});
 
-const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM, CONTACT_EMAIL, TURNSTILE_SECRET_KEY } = env;
-
-const transporter = nodemailer.createTransport({
-	host: SMTP_HOST,
-	port: Number(SMTP_PORT),
-	secure: Number(SMTP_PORT) === 465,
-	auth: {
-		user: SMTP_USER,
-		pass: SMTP_PASS
+	if (!res.ok) {
+		throw new Error(`Email send failed: ${res.status} ${await res.text()}`);
 	}
-});
+}
 
 type FieldConfig = {
 	key: string;
@@ -102,13 +107,16 @@ const FORM_CONFIG: Record<string, FormConfig> = {
 };
 
 async function verifyTurnstile(token: string, request: Request) {
-	if (!TURNSTILE_SECRET_KEY) return true;
+	const secret = env.TURNSTILE_SECRET_KEY;
+	if (!secret) return true;
+	// ...use `secret` in the body instead of TURNSTILE_SECRET_KEY
+
 
 	const ip =
 		request.headers.get('CF-Connecting-IP') ?? request.headers.get('X-Forwarded-For') ?? undefined;
 
 	const body = {
-		secret: TURNSTILE_SECRET_KEY,
+		secret: secret,
 		response: token,
 		...(ip ? { remoteip: ip } : {})
 	};
@@ -195,8 +203,8 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		// Turnstile is required whenever a secret key is configured
 		const turnstileToken = String(formData.get('cf-turnstile-response') ?? '').trim();
-
-		if (TURNSTILE_SECRET_KEY) {
+		const secret = env.TURNSTILE_SECRET_KEY;
+		if (secret) {
 			if (!turnstileToken) {
 				return json(
 					{
@@ -247,58 +255,36 @@ export const POST: RequestHandler = async ({ request }) => {
 			.join('');
 
 		// Email the client
-		await transporter.sendMail({
-			from: SMTP_FROM,
-			to: CONTACT_EMAIL,
-			replyTo: email,
-			subject: `${
-				formType === 'contactPage'
-					? `${config.clientSubject} ${values.subject} message`
-					: config.clientSubject
-			} — ${subjectName.replace(/[\r\n]+/g, ' ')}`,
-			text: plainDetails,
-			html: `
-			<h2>${escapeHtml(
-				`${
-					formType === 'contactPage'
-						? `${config.clientSubject} ${values.subject} message`
-						: config.clientSubject
-				} — ${subjectName.replace(/[\r\n]+/g, ' ')}`
-			)}</h2>
-			${htmlDetails}
-            `
-		});
+const clientSubject = `${
+	formType === 'contactPage'
+		? `${config.clientSubject} ${values.subject} message`
+		: config.clientSubject
+} — ${subjectName.replace(/[\r\n]+/g, ' ')}`;
 
-		// Confirm receipt to the visitor
-		await transporter.sendMail({
-			from: SMTP_FROM,
-			to: email,
-			subject: config.confirmationSubject,
-			text: `
-			Hi ${senderFirstName},
-			
-			${config.confirmationMessage}
-			
-			Here is a copy of your submission:
-			
-			${plainDetails}
-			
-			Thank you!
-            `.trim(),
-			html: `
-			<p>Hi ${escapeHtml(senderFirstName)},</p>
-			<p>${escapeHtml(config.confirmationMessage)}</p>
-			<p><span style="opacity: 65%;">--</span><br>
-			<span style="opacity: 65%;">Mat Montgomery</span><br>
-			<a href="http://matmontgomerymusic.com" target="_blank" rel="noopener noreferrer">matmontgomerymusic.com</a>
-			<br>
-			<a href="http://dapperpage.com" target="_blank" rel="noopener noreferrer">dapperpage.com</a></p>
-			<br>
-			<h3>Your submission</h3>
-			${htmlDetails}
-            `
-		});
+await sendEmail({
+	to: env.CONTACT_EMAIL,
+	replyTo: email,
+	subject: clientSubject,
+	text: plainDetails,
+	html: `<h2>${escapeHtml(clientSubject)}</h2>${htmlDetails}`
+});
 
+// Confirm receipt to the visitor
+await sendEmail({
+	to: email,
+	subject: config.confirmationSubject,
+	text: `Hi ${senderFirstName},\n\n${config.confirmationMessage}\n\nHere is a copy of your submission:\n\n${plainDetails}\n\nThank you!`,
+	html: `
+		<p>Hi ${escapeHtml(senderFirstName)},</p>
+		<p>${escapeHtml(config.confirmationMessage)}</p>
+		<p><span style="opacity: 65%;">--</span><br>
+		<span style="opacity: 65%;">Mat Montgomery</span><br>
+		<a href="http://matmontgomerymusic.com" target="_blank" rel="noopener noreferrer">matmontgomerymusic.com</a><br>
+		<a href="http://dapperpage.com" target="_blank" rel="noopener noreferrer">dapperpage.com</a></p>
+		<br>
+		<h3>Your submission</h3>
+		${htmlDetails}`
+});
 		return json({ success: true });
 	} catch (error) {
 		console.error('Form submission error:', error);

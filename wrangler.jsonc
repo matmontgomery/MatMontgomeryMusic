@@ -9,9 +9,9 @@
 		"directory": ".svelte-kit/cloudflare"
 	},
 	"vars": {
-	  "PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAFX8gZ880xFkOpEj",
-	  "SMTP_HOST": "smtp.gmail.com",
-	  "SMTP_PORT": "587"
+		"CONTACT_EMAIL": "mathewglenn@gmail.com",
+		"MAIL_FROM": "Mat Montgomery <contact@matmontgomerymusic.com>",
+		"PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAFX8gZ880xFkOpEj"
 	},
 	"workers_dev": true,
 	"preview_urls": true

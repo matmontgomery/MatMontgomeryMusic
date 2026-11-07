@@ -111,7 +111,6 @@ async function verifyTurnstile(token: string, request: Request) {
 	if (!secret) return true;
 	// ...use `secret` in the body instead of TURNSTILE_SECRET_KEY
 
-
 	const ip =
 		request.headers.get('CF-Connecting-IP') ?? request.headers.get('X-Forwarded-For') ?? undefined;
 
@@ -230,10 +229,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		const senderName = values[config.senderNameField] || 'Website visitor';
 		const senderFirstName = senderName.split(' ')[0];
-		const subjectName =
-			formType === 'lesson'
-				? values.studentName
-				: senderName;
+		const subjectName = formType === 'lesson' ? values.studentName : senderName;
 
 		// Format the submitted fields for both email formats
 		const submittedFields = config.fields
@@ -255,26 +251,27 @@ export const POST: RequestHandler = async ({ request }) => {
 			.join('');
 
 		// Email the client
-const clientSubject = `${
-	formType === 'contactPage'
-		? `${config.clientSubject} ${values.subject} message`
-		: config.clientSubject
-} — ${subjectName.replace(/[\r\n]+/g, ' ')}`;
+		const clientSubject = `${
+			formType === 'contactPage'
+				? `${config.clientSubject} ${values.subject} message`
+				: config.clientSubject
+		} — ${subjectName.replace(/[\r\n]+/g, ' ')}`;
 
-await sendEmail({
-	to: env.CONTACT_EMAIL,
-	replyTo: email,
-	subject: clientSubject,
-	text: plainDetails,
-	html: `<h2>${escapeHtml(clientSubject)}</h2>${htmlDetails}`
-});
+		await sendEmail({
+			to: env.CONTACT_EMAIL,
+			replyTo: email,
+			subject: clientSubject,
+			text: plainDetails,
+			html: `<h2>${escapeHtml(clientSubject)}</h2>${htmlDetails}`
+		});
 
-// Confirm receipt to the visitor
-await sendEmail({
-	to: email,
-	subject: config.confirmationSubject,
-	text: `Hi ${senderFirstName},\n\n${config.confirmationMessage}\n\nHere is a copy of your submission:\n\n${plainDetails}\n\nThank you!`,
-	html: `
+		// Confirm receipt to the visitor
+		await sendEmail({
+			to: email,
+			replyTo: env.CONTACT_EMAIL,
+			subject: config.confirmationSubject,
+			text: `Hi ${senderFirstName},\n\n${config.confirmationMessage}\n\nHere is a copy of your submission:\n\n${plainDetails}\n\nThank you!`,
+			html: `
 		<p>Hi ${escapeHtml(senderFirstName)},</p>
 		<p>${escapeHtml(config.confirmationMessage)}</p>
 		<p><span style="opacity: 65%;">--</span><br>
@@ -284,7 +281,7 @@ await sendEmail({
 		<br>
 		<h3>Your submission</h3>
 		${htmlDetails}`
-});
+		});
 		return json({ success: true });
 	} catch (error) {
 		console.error('Form submission error:', error);

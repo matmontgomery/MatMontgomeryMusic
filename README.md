@@ -8,6 +8,7 @@ This is a base starter project in SvelteKit that can be used as a template for f
 - Should "Custom Clinic" button open a modal form?
 - SEO and AEO optimization
 - Deploy with Cloudflare
+- Why is contact form not working on deployed website?
 
 ## New Project
 

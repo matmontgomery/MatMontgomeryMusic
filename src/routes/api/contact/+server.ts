@@ -284,7 +284,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		});
 		return json({ success: true });
 	} catch (error) {
-		console.error('Form submission error:', error);
+		console.error('Form submission error:', error instanceof Error ? error.message : String(error));
 
 		return json(
 			{
